@@ -84,7 +84,10 @@ export const TerminalPreview = ({
   return (
     <div
       ref={previewRef}
-      className="w-full max-w-4xl mx-auto"
+      className={cn(
+        "w-full mx-auto transition-all duration-300",
+        settings.orientation === "landscape" ? "max-w-7xl" : "max-w-md"
+      )}
       style={{
         background: settings.background.css,
         padding: "20px",
@@ -102,12 +105,12 @@ export const TerminalPreview = ({
       >
         {hasChrome && renderOSChrome(settings.osChrome, windowTitle)}
         <div
-          className="p-6 font-mono text-sm leading-relaxed overflow-auto"
+          className="p-6 font-mono text-sm leading-relaxed overflow-auto transition-all duration-300"
           style={{
             backgroundColor: settings.theme.background,
             color: settings.theme.foreground,
-            minHeight: "300px",
-            maxHeight: "600px",
+            minHeight: settings.orientation === "landscape" ? "200px" : "600px",
+            maxHeight: settings.orientation === "landscape" ? "350px" : "900px",
           }}
         >
           <div className="whitespace-pre-wrap break-words">

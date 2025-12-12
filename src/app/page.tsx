@@ -6,6 +6,7 @@ import { ThemeSelector } from "@/components/ThemeSelector"
 import { BackgroundSelector } from "@/components/BackgroundSelector"
 import { OSChromeToggle } from "@/components/OSChromeToggle"
 import { ShellTypeSelector } from "@/components/ShellTypeSelector"
+import { OrientationSelector } from "@/components/OrientationSelector"
 import { TerminalPreview } from "@/components/TerminalPreview"
 import { ExportButton } from "@/components/ExportButton"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -50,6 +51,7 @@ export default function Home() {
     osChrome: "macos",
     shellType: "auto",
     windowTitle: "Terminal",
+    orientation: "landscape",
   })
 
   const handleTextChange = (text: string) => {
@@ -76,6 +78,10 @@ export default function Home() {
     setSettings((prev) => ({ ...prev, windowTitle }))
   }
 
+  const handleOrientationChange = (orientation: typeof settings.orientation) => {
+    setSettings((prev) => ({ ...prev, orientation }))
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -94,6 +100,10 @@ export default function Home() {
                 <CardTitle>Customize</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
+                <OrientationSelector
+                  value={settings.orientation}
+                  onChange={handleOrientationChange}
+                />
                 <TextInput
                   value={settings.text}
                   onChange={handleTextChange}
