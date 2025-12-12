@@ -7,12 +7,13 @@ import { BackgroundSelector } from "@/components/BackgroundSelector"
 import { OSChromeToggle } from "@/components/OSChromeToggle"
 import { ShellTypeSelector } from "@/components/ShellTypeSelector"
 import { OrientationSelector } from "@/components/OrientationSelector"
+import { PaddingSelector } from "@/components/PaddingSelector"
 import { TerminalPreview } from "@/components/TerminalPreview"
 import { ExportButton } from "@/components/ExportButton"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getThemeByName } from "@/lib/themes"
 import { getBackgroundById } from "@/lib/backgrounds"
-import type { TerminalSettings } from "@/types"
+import type { TerminalSettings, PaddingConfig } from "@/types"
 
 const defaultTerminalOutput = `$ npm install -g terminal-snap
 npm WARN deprecated package@1.0.0: This package is no longer maintained
@@ -52,6 +53,16 @@ export default function Home() {
     shellType: "auto",
     windowTitle: "Terminal",
     orientation: "landscape",
+    padding: {
+      landscape: {
+        horizontal: 32,
+        vertical: 24,
+      },
+      portrait: {
+        horizontal: 20,
+        vertical: 32,
+      },
+    },
   })
 
   const handleTextChange = (text: string) => {
@@ -82,6 +93,16 @@ export default function Home() {
     setSettings((prev) => ({ ...prev, orientation }))
   }
 
+  const handlePaddingChange = (padding: PaddingConfig) => {
+    setSettings((prev) => ({
+      ...prev,
+      padding: {
+        ...prev.padding,
+        [prev.orientation]: padding,
+      },
+    }))
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -103,6 +124,11 @@ export default function Home() {
                 <OrientationSelector
                   value={settings.orientation}
                   onChange={handleOrientationChange}
+                />
+                <PaddingSelector
+                  orientation={settings.orientation}
+                  value={settings.padding[settings.orientation]}
+                  onChange={handlePaddingChange}
                 />
                 <TextInput
                   value={settings.text}

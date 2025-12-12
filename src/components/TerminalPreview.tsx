@@ -81,6 +81,9 @@ export const TerminalPreview = ({
   const hasChrome = settings.osChrome !== "none"
   const windowTitle = settings.windowTitle || "Terminal"
 
+  const currentPadding = settings.padding[settings.orientation]
+  const paddingStyle = `${currentPadding.vertical}px ${currentPadding.horizontal}px`
+
   return (
     <div
       ref={previewRef}
@@ -90,7 +93,7 @@ export const TerminalPreview = ({
       )}
       style={{
         background: settings.background.css,
-        padding: "20px",
+        padding: paddingStyle,
         borderRadius: hasChrome ? "0 0 8px 8px" : "8px",
       }}
     >
