@@ -56,6 +56,7 @@ export interface TerminalSettings {
   windowTitle?: string
   orientation: Orientation
   padding: OrientationPadding
+  dropShadow: boolean
 }
 
 

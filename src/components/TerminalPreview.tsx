@@ -99,11 +99,12 @@ export const TerminalPreview = ({
     >
       <div
         className={cn(
-          "rounded-lg overflow-hidden shadow-2xl",
+          "rounded-lg overflow-hidden",
           hasChrome && "rounded-t-none"
         )}
         style={{
           backgroundColor: settings.theme.background,
+          boxShadow: settings.dropShadow ? "0 20px 68px rgba(0, 0, 0, 0.55)" : "none",
         }}
       >
         {hasChrome && renderOSChrome(settings.osChrome, windowTitle)}
