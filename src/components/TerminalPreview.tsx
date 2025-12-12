@@ -102,6 +102,7 @@ export const TerminalPreview = ({
       >
         {hasChrome && renderOSChrome(settings.osChrome, windowTitle)}
         <div
+          data-scrollable="true"
           className="p-6 font-mono text-sm leading-relaxed overflow-auto"
           style={{
             backgroundColor: settings.theme.background,
