@@ -12,7 +12,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "next": "^14.2.0",
-    "ansi-to-react": "^6.1.6",
+    "ansi-to-html": "^0.7.2",
     "shiki": "^1.0.0",
     "html-to-image": "^1.11.11",
     "class-variance-authority": "^0.7.0",
