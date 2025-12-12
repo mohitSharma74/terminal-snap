@@ -8,6 +8,7 @@ import { OSChromeToggle } from "@/components/OSChromeToggle"
 import { ShellTypeSelector } from "@/components/ShellTypeSelector"
 import { OrientationSelector } from "@/components/OrientationSelector"
 import { PaddingSelector } from "@/components/PaddingSelector"
+import { DropShadowToggle } from "@/components/DropShadowToggle"
 import { TerminalPreview } from "@/components/TerminalPreview"
 import { ExportButton } from "@/components/ExportButton"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -63,6 +64,7 @@ export default function Home() {
         vertical: 32,
       },
     },
+    dropShadow: true,
   })
 
   const handleTextChange = (text: string) => {
@@ -103,6 +105,10 @@ export default function Home() {
     }))
   }
 
+  const handleDropShadowChange = (dropShadow: boolean) => {
+    setSettings((prev) => ({ ...prev, dropShadow }))
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -141,6 +147,10 @@ export default function Home() {
                 <BackgroundSelector
                   value={settings.background}
                   onChange={handleBackgroundChange}
+                />
+                <DropShadowToggle
+                  value={settings.dropShadow}
+                  onChange={handleDropShadowChange}
                 />
                 <OSChromeToggle
                   value={settings.osChrome}
