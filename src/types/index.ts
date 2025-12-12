@@ -2,6 +2,18 @@ export type OSChrome = "macos" | "windows" | "linux" | "none"
 
 export type ShellType = "bash" | "zsh" | "powershell" | "auto"
 
+export type Orientation = "portrait" | "landscape"
+
+export interface PaddingConfig {
+  horizontal: number
+  vertical: number
+}
+
+export interface OrientationPadding {
+  landscape: PaddingConfig
+  portrait: PaddingConfig
+}
+
 export interface ANSIColorPalette {
   black: string
   red: string
@@ -42,6 +54,8 @@ export interface TerminalSettings {
   osChrome: OSChrome
   shellType: ShellType
   windowTitle?: string
+  orientation: Orientation
+  padding: OrientationPadding
 }
 
 
