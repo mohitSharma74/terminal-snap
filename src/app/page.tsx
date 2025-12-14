@@ -70,7 +70,7 @@ export default function Home() {
   const handleTextChange = (text: string) => {
     setSettings((prev) => ({ ...prev, text }))
   }
-
+  
   const handleThemeChange = (theme: typeof settings.theme) => {
     setSettings((prev) => ({ ...prev, theme }))
   }
