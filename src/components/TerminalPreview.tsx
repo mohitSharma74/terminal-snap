@@ -83,18 +83,18 @@ export const TerminalPreview = ({
 
   const currentPadding = settings.padding[settings.orientation]
   const paddingStyle = `${currentPadding.vertical}px ${currentPadding.horizontal}px`
+  const maxWidth = settings.orientation === "landscape" ? "1280px" : "448px"
 
   return (
     <div
       ref={previewRef}
-      className={cn(
-        "w-full mx-auto transition-all duration-300",
-        settings.orientation === "landscape" ? "max-w-7xl" : "max-w-md"
-      )}
+      className="w-full mx-auto transition-all duration-300"
       style={{
         background: settings.background.css,
         padding: paddingStyle,
         borderRadius: hasChrome ? "0 0 8px 8px" : "8px",
+        boxSizing: "content-box",
+        maxWidth: maxWidth,
       }}
     >
       <div

@@ -29,15 +29,18 @@ export const ExportButton = ({ previewRef }: ExportButtonProps) => {
   }
 
   return (
-    <Button
-      onClick={handleExport}
-      disabled={isExporting}
-      className="w-full"
-      aria-label="Export as PNG"
-    >
-      <Download className="mr-2 h-4 w-4" />
-      {isExporting ? "Exporting..." : "Export as PNG"}
-    </Button>
+    <div className="relative w-full group">
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#667eea] rounded-lg opacity-0 group-hover:opacity-100 transition duration-300 animate-gradient-rotate blur-sm"></div>
+      <Button
+        onClick={handleExport}
+        disabled={isExporting}
+        className="relative w-full bg-gradient-to-r from-[#667eea] to-[#764ba2] hover:from-[#5568d3] hover:to-[#6a3f91] text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200"
+        aria-label="Export as PNG"
+      >
+        <Download className="mr-2 h-4 w-4" />
+        {isExporting ? "Exporting..." : "Export as PNG"}
+      </Button>
+    </div>
   )
 }
 

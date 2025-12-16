@@ -15,8 +15,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    // <html lang="en">
+    //   <body className={inter.className}>{children}</body>
+    // </html>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          async
+          crossOrigin="anonymous"
+          src="https://tweakcn.com/live-preview.min.js"
+        />
+      </head>
+      <body className={inter.className} suppressHydrationWarning>{children}</body>
     </html>
   )
 }
