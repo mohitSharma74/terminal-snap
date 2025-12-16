@@ -112,8 +112,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold mb-2">TerminalSnap</h1>
+        <div className="mb-4 text-center">
+          <div className="flex items-center justify-center">
+            <img src="/hero.svg" alt="TerminalSnap" className="w-1/2 mx-auto mb-1" />
+          </div>
           <p className="text-muted-foreground">
             Create beautiful terminal screenshots for your documentation
           </p>
@@ -168,7 +170,7 @@ export default function Home() {
           </div>
 
           {/* Right Panel - Preview */}
-          <div className="flex items-start justify-center">
+          <div className="flex items-center justify-center">
             <TerminalPreview settings={settings} previewRef={previewRef} />
           </div>
         </div>
