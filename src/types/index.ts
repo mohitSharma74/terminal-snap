@@ -59,4 +59,9 @@ export interface TerminalSettings {
   dropShadow: boolean
 }
 
+export interface TerminalPreset {
+  id: string
+  name: string
+  settings: TerminalSettings
+}
 
