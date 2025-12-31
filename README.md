@@ -23,17 +23,20 @@ A beautiful terminal screenshot beautifier built with Next.js. Create stunning t
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/terminal-snap.git
 cd terminal-snap
 ```
 
 2. Install dependencies:
+
 ```bash
 yarn install
 ```
 
 3. Run the development server:
+
 ```bash
 yarn dev
 ```
@@ -89,6 +92,7 @@ The app will be live at `https://your-project.vercel.app`
 ### Other Platforms
 
 TerminalSnap can be deployed to any platform that supports Next.js:
+
 - Netlify
 - Cloudflare Pages
 - AWS Amplify
@@ -104,6 +108,37 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Open Source Roadmap
+
+This project is currently being prepared for open source contribution. Below is our execution plan:
+
+### Phase 1: Essential Documentation & Branding
+
+- Generate hero terminal image showcasing git workflow
+- Update README with badges (NextJS, TypeScript, MIT License, In Development)
+- Create/verify LICENSE.md file
+- Create comprehensive CONTRIBUTING.md
+
+### Phase 2: GitHub Templates & Community
+
+- Create `.github/ISSUE_TEMPLATE/feature_request.md`
+- Create `.github/pull_request_template.md`
+- Create `Quickstart.md` guide for new contributors
+- Add "Upcoming Features" section to README (all items from Future Features list)
+
+### Phase 3: Application Features
+
+- Add top navigation bar with GitHub repo link
+- Add "Upcoming Features" page link in navigation
+- Deploy to Vercel and verify functionality
+
+### Phase 4: Testing & Automation
+
+- Set up Jest + React Testing Library for comprehensive test coverage
+- Create GitHub Actions workflows for CI/CD, linting, and testing
+- Implement custom GitHub Action bot for code reviews
+- Add unit tests for all critical functionality
+
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -113,5 +148,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - Inspired by [carbon.now.sh](https://carbon.now.sh)
 - Built with [shadcn/ui](https://ui.shadcn.com)
 - Terminal themes inspired by popular terminal color schemes
-
-
