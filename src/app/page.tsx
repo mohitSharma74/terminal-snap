@@ -45,7 +45,7 @@ To https://github.com/user/terminal-snap.git
 
 export default function Home() {
   const previewRef = useRef<HTMLDivElement>(null)
-  
+
   const [settings, setSettings] = useState<TerminalSettings>({
     text: defaultTerminalOutput,
     theme: getThemeByName("Dracula"),
@@ -70,7 +70,7 @@ export default function Home() {
   const handleTextChange = (text: string) => {
     setSettings((prev) => ({ ...prev, text }))
   }
-  
+
   const handleThemeChange = (theme: typeof settings.theme) => {
     setSettings((prev) => ({ ...prev, theme }))
   }
@@ -91,7 +91,9 @@ export default function Home() {
     setSettings((prev) => ({ ...prev, windowTitle }))
   }
 
-  const handleOrientationChange = (orientation: typeof settings.orientation) => {
+  const handleOrientationChange = (
+    orientation: typeof settings.orientation
+  ) => {
     setSettings((prev) => ({ ...prev, orientation }))
   }
 
@@ -114,14 +116,15 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-4 text-center">
           <div className="flex items-center justify-center">
-            <img src="/hero.svg" alt="TerminalSnap" className="w-1/2 mx-auto mb-1" />
+            <img
+              src="/hero-with-subtitle.svg"
+              alt="TerminalSnap"
+              className="mx-auto mb-1 w-1/2"
+            />
           </div>
-          <p className="text-muted-foreground">
-            Create beautiful terminal screenshots for your documentation
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Panel - Controls */}
           <div className="space-y-6">
             <Card>
@@ -138,10 +141,7 @@ export default function Home() {
                   value={settings.padding[settings.orientation]}
                   onChange={handlePaddingChange}
                 />
-                <TextInput
-                  value={settings.text}
-                  onChange={handleTextChange}
-                />
+                <TextInput value={settings.text} onChange={handleTextChange} />
                 <ThemeSelector
                   value={settings.theme}
                   onChange={handleThemeChange}
@@ -178,5 +178,3 @@ export default function Home() {
     </main>
   )
 }
-
-
