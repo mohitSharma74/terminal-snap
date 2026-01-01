@@ -1,7 +1,6 @@
 "use client"
 
-import { Select } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
+import { FloatingSelect } from "@/components/ui/floating-select"
 import { backgrounds } from "@/lib/backgrounds"
 import type { BackgroundPreset } from "@/types"
 
@@ -22,21 +21,19 @@ export const BackgroundSelector = ({
   }
 
   return (
-    <div className="space-y-2">
-      <Label htmlFor="background-select">Background</Label>
-      <Select
-        id="background-select"
-        value={value.id}
-        onChange={handleChange}
-        aria-label="Select background"
-      >
-        {backgrounds.map((bg) => (
-          <option key={bg.id} value={bg.id}>
-            {bg.name}
-          </option>
-        ))}
-      </Select>
-    </div>
+    <FloatingSelect
+      id="background-select"
+      label="Background"
+      value={value.id}
+      onChange={handleChange}
+      aria-label="Select background"
+    >
+      {backgrounds.map((bg) => (
+        <option key={bg.id} value={bg.id}>
+          {bg.name}
+        </option>
+      ))}
+    </FloatingSelect>
   )
 }
 

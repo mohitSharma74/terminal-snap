@@ -30,7 +30,8 @@ yarn lint
 - **Framework**: Next.js 14+ with App Router
 - **Language**: TypeScript (strict mode enabled)
 - **Package Manager**: Yarn (not npm)
-- **Styling**: Tailwind CSS + shadcn/ui components
+- **Styling**: Tailwind CSS with custom CSS (pure React components)
+- **Design System**: Glassmorphic dark theme with floating labels and cyan/blue accents
 - **ANSI Parsing**: ansi-to-react for terminal color codes
 - **Export**: html-to-image for PNG generation
 - **Deployment**: Vercel (optimized for zero-config deployment)
@@ -84,8 +85,42 @@ All components are functional React components using TypeScript:
 - **Functional components only** - No class components
 - **Client Components**: Main page and all interactive components use `"use client"` directive (required for hooks and interactivity)
 - **Presentation Layer**: Components in `src/components/` handle UI and user input
-- **UI Primitives**: shadcn/ui components in `src/components/ui/` provide base components (button, select, textarea, card, label)
+- **UI Primitives**: Custom glassmorphic components in `src/components/ui/`:
+  - `FloatingInput`, `FloatingTextarea`, `FloatingSelect` - Inputs with animated floating labels
+  - `ModernCheckbox`, `ModernRadio`, `ModernSlider` - Glassmorphic form controls
+  - `ModernButton` - Button with variants (primary, secondary, outline)
+  - `GlassCard` - Glassmorphic card container with header/content/footer
 - **Utilities**: `src/lib/` contains pure functions for parsing, export, and configuration
+
+### Design System: Glassmorphic Dark Theme
+
+The application uses a custom glassmorphic dark theme design:
+
+**Background:**
+- Deep dark blue base (#050816)
+- Animated mesh gradient with 4 blurred color blobs (cyan, blue, purple)
+- Blobs use radial gradients with 90-120px blur and slow floating animations (20-30s duration)
+
+**Color Palette:**
+- Primary accent: Cyan (#06b6d4)
+- Secondary accent: Blue (#3b82f6)
+- Tertiary accent: Purple (#6366f1)
+- Text: Light gray (#e5e7eb)
+- Borders: Cyan with transparency (rgba(6, 182, 212, 0.3))
+
+**Glassmorphic Properties:**
+- Semi-transparent backgrounds (5-15% opacity)
+- Backdrop blur (8-20px)
+- Subtle cyan borders
+- Soft dark shadows for depth
+- Hover states with enhanced glow
+
+**Floating Labels:**
+- Labels animate from inside input to above on focus/content
+- Position-based animation (top property change)
+- Smaller font size when floated (0.75rem)
+- Cyan color when active
+- Transparent background (no dark overlay)
 
 ### ANSI Parsing
 
@@ -137,11 +172,13 @@ TypeScript is configured with `@/*` alias pointing to `./src/*`:
 
 ### Styling Approach
 
-- Tailwind CSS for all styling (no CSS modules or styled-components)
-- shadcn/ui components use `cn()` utility from `lib/utils.ts` for className merging
-- Inline styles used only for dynamic values (theme colors, backgrounds)
-- Component styling follows shadcn/ui patterns with className props
+- Tailwind CSS for utility classes
+- Custom CSS in `globals.css` for glassmorphic components (floating labels, buttons, checkboxes, etc.)
+- `cn()` utility from `lib/utils.ts` for className merging (uses clsx + tailwind-merge)
+- Inline styles used only for dynamic values (theme colors, terminal backgrounds)
+- All form components use CSS classes defined in globals.css (e.g., `.floating-input`, `.modern-checkbox-input`)
 - Responsive design: Desktop-first, mobile support is nice-to-have but not critical for v1
+- Dark theme enforced via `className="dark"` on HTML element in layout.tsx
 
 ### Real-time Preview
 
@@ -164,13 +201,17 @@ Initial application state (defined in `page.tsx`):
 ### Two-Panel Layout
 
 The UI uses a responsive grid layout:
-- **Left Panel (Controls)**: Card containing all customization controls
-  - Text input textarea
-  - Theme selector dropdown
-  - Background selector
-  - OS chrome toggle buttons
-  - Shell type selector
-  - Export button
+- **Left Panel (Controls)**: GlassCard containing all customization controls
+  - Orientation selector (radio buttons)
+  - Padding sliders (horizontal/vertical)
+  - Terminal output textarea (floating label)
+  - Theme selector dropdown (floating label)
+  - Background selector (floating label)
+  - Drop shadow toggle (checkbox)
+  - OS chrome selector (floating label dropdown)
+  - Window title input (floating label, conditional)
+  - Shell type selector (floating label dropdown)
+  - Export button (gradient with glow effect)
 - **Right Panel (Preview)**: Live preview of the styled terminal window
   - Updates in real-time as settings change
   - Shows actual export appearance

@@ -1,7 +1,6 @@
 "use client"
 
-import { Select } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
+import { FloatingSelect } from "@/components/ui/floating-select"
 import { themes } from "@/lib/themes"
 import type { TerminalTheme } from "@/types"
 
@@ -19,21 +18,19 @@ export const ThemeSelector = ({ value, onChange }: ThemeSelectorProps) => {
   }
 
   return (
-    <div className="space-y-2">
-      <Label htmlFor="theme-select">Terminal Theme</Label>
-      <Select
-        id="theme-select"
-        value={value.name}
-        onChange={handleChange}
-        aria-label="Select terminal theme"
-      >
-        {themes.map((theme) => (
-          <option key={theme.name} value={theme.name}>
-            {theme.name}
-          </option>
-        ))}
-      </Select>
-    </div>
+    <FloatingSelect
+      id="theme-select"
+      label="Terminal Theme"
+      value={value.name}
+      onChange={handleChange}
+      aria-label="Select terminal theme"
+    >
+      {themes.map((theme) => (
+        <option key={theme.name} value={theme.name}>
+          {theme.name}
+        </option>
+      ))}
+    </FloatingSelect>
   )
 }
 

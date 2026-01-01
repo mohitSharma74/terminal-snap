@@ -1,7 +1,6 @@
 "use client"
 
-import { Label } from "@/components/ui/label"
-import { Slider } from "@/components/ui/slider"
+import { ModernSlider } from "@/components/ui/modern-slider"
 import type { Orientation, PaddingConfig } from "@/types"
 
 interface PaddingSelectorProps {
@@ -24,12 +23,14 @@ export const PaddingSelector = ({
   }
 
   return (
-    <div className="space-y-4">
-      <Label>
-        Padding ({orientation === "landscape" ? "Landscape" : "Portrait"})
-      </Label>
+    <div className="form-field">
+      <div className="mb-4">
+        <span className="text-sm font-medium text-foreground">
+          Padding ({orientation === "landscape" ? "Landscape" : "Portrait"})
+        </span>
+      </div>
       <div className="space-y-4 pl-1">
-        <Slider
+        <ModernSlider
           label="Horizontal (Left/Right)"
           value={value.horizontal}
           onChange={handleHorizontalChange}
@@ -38,7 +39,7 @@ export const PaddingSelector = ({
           step={4}
           aria-label={`${orientation} horizontal padding`}
         />
-        <Slider
+        <ModernSlider
           label="Vertical (Top/Bottom)"
           value={value.vertical}
           onChange={handleVerticalChange}

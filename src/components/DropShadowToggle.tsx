@@ -1,7 +1,6 @@
 "use client"
 
-import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
+import { ModernCheckbox } from "@/components/ui/modern-checkbox"
 
 interface DropShadowToggleProps {
   value: boolean
@@ -17,9 +16,11 @@ export const DropShadowToggle = ({
   }
 
   return (
-    <div className="space-y-2">
-      <Label>Shadow</Label>
-      <Checkbox
+    <div className="form-field">
+      <div className="mb-2">
+        <span className="text-sm font-medium text-foreground">Shadow</span>
+      </div>
+      <ModernCheckbox
         id="drop-shadow-toggle"
         label="Enable drop shadow"
         checked={value}

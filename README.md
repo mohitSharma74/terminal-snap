@@ -2,6 +2,8 @@
 
 A beautiful terminal screenshot beautifier built with Next.js. Create stunning terminal screenshots for your documentation, blogs, and presentations.
 
+Featuring a **modern glassmorphic dark theme** with animated mesh gradient backgrounds and floating label form design.
+
 ## Features
 
 - 🎨 **7 Beautiful Themes**: Dracula, Nord, One Dark, Gruvbox Dark, Tokyo Night, Solarized Light, and GitHub Light
@@ -12,6 +14,8 @@ A beautiful terminal screenshot beautifier built with Next.js. Create stunning t
 - 📸 **High-Quality Export**: Export your terminal screenshots as PNG images
 - ⚡ **Real-time Preview**: See your changes instantly as you customize
 - 🎨 **Fully Client-Side**: No backend required, everything runs in your browser
+- 🌙 **Glassmorphic Dark UI**: Modern dark theme with animated mesh gradient background, floating labels, and cyan/blue accents
+- 📐 **Customizable Padding**: Adjust horizontal and vertical padding for landscape/portrait orientations
 
 ## Getting Started
 
@@ -55,7 +59,8 @@ yarn dev
 
 - **Framework**: Next.js 14+ (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS + shadcn/ui
+- **Styling**: Tailwind CSS with custom CSS (pure React components)
+- **Design**: Glassmorphic dark theme with floating labels
 - **ANSI Parsing**: ansi-to-react
 - **Syntax Highlighting**: shiki
 - **Export**: html-to-image
@@ -66,18 +71,39 @@ yarn dev
 terminal-snap/
 ├── src/
 │   ├── app/              # Next.js app router pages
-│   ├── components/        # React components
-│   │   ├── ui/           # shadcn/ui components
-│   │   └── ...          # Feature components
+│   │   ├── globals.css   # Global styles & glassmorphic theme
+│   │   ├── layout.tsx    # Root layout with dark theme
+│   │   └── page.tsx      # Main application page
+│   ├── components/       # React components
+│   │   ├── ui/           # Glassmorphic UI primitives
+│   │   │   ├── floating-input.tsx
+│   │   │   ├── floating-textarea.tsx
+│   │   │   ├── floating-select.tsx
+│   │   │   ├── modern-checkbox.tsx
+│   │   │   ├── modern-radio.tsx
+│   │   │   ├── modern-slider.tsx
+│   │   │   ├── modern-button.tsx
+│   │   │   └── glass-card.tsx
+│   │   └── ...           # Feature components
 │   ├── lib/              # Utilities and configurations
-│   │   ├── themes.ts    # Theme definitions
+│   │   ├── themes.ts     # Terminal theme definitions
 │   │   ├── backgrounds.ts
-│   │   ├── ansi-parser.ts
+│   │   ├── ansi-parser.tsx
 │   │   └── export.ts
-│   └── types/           # TypeScript type definitions
-├── public/              # Static assets
+│   └── types/            # TypeScript type definitions
+├── public/               # Static assets
 └── package.json
 ```
+
+## Design System
+
+TerminalSnap uses a custom **glassmorphic dark theme** design:
+
+- **Mesh Gradient Background**: Animated blurred color blobs in cyan, blue, and purple
+- **Glassmorphic Components**: Semi-transparent backgrounds with backdrop blur
+- **Floating Labels**: Animated labels that float above inputs on focus/content
+- **Accent Colors**: Cyan (#06b6d4) and blue (#3b82f6) gradients
+- **Dark Base**: Deep dark blue (#050816) background
 
 ## Deployment
 
@@ -146,5 +172,6 @@ This project is open source and available under the [MIT License](LICENSE).
 ## Acknowledgments
 
 - Inspired by [carbon.now.sh](https://carbon.now.sh)
-- Built with [shadcn/ui](https://ui.shadcn.com)
+- Glassmorphic design inspired by modern UI trends
+- Floating label pattern inspired by [UIverse.io](https://uiverse.io)
 - Terminal themes inspired by popular terminal color schemes

@@ -11,7 +11,12 @@ import { PaddingSelector } from "@/components/PaddingSelector"
 import { DropShadowToggle } from "@/components/DropShadowToggle"
 import { TerminalPreview } from "@/components/TerminalPreview"
 import { ExportButton } from "@/components/ExportButton"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  GlassCard,
+  GlassCardContent,
+  GlassCardHeader,
+  GlassCardTitle,
+} from "@/components/ui/glass-card"
 import { getThemeByName } from "@/lib/themes"
 import { getBackgroundById } from "@/lib/backgrounds"
 import type { TerminalSettings, PaddingConfig } from "@/types"
@@ -112,7 +117,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-4 text-center">
           <div className="flex items-center justify-center">
@@ -127,11 +132,11 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Panel - Controls */}
           <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Customize</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
+            <GlassCard>
+              <GlassCardHeader>
+                <GlassCardTitle>Customize</GlassCardTitle>
+              </GlassCardHeader>
+              <GlassCardContent className="space-y-6">
                 <OrientationSelector
                   value={settings.orientation}
                   onChange={handleOrientationChange}
@@ -165,8 +170,8 @@ export default function Home() {
                   onChange={handleShellTypeChange}
                 />
                 <ExportButton previewRef={previewRef} />
-              </CardContent>
-            </Card>
+              </GlassCardContent>
+            </GlassCard>
           </div>
 
           {/* Right Panel - Preview */}
