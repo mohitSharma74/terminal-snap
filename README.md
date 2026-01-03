@@ -22,35 +22,19 @@ Featuring a **modern glassmorphic dark theme** with animated mesh gradient backg
 - 🌙 **Glassmorphic Dark UI**: Modern dark theme with animated mesh gradient background, floating labels, and cyan/blue accents
 - 📐 **Customizable Padding**: Adjust horizontal and vertical padding for landscape/portrait orientations
 
-## Getting Started
+## Upcoming Features
 
-### Prerequisites
+- 🎨 Window padding/sizing controls
+- 🔤 Font family selection
+- 🌟 Shadow and border customization
+- 📋 Copy as HTML/SVG export options
+- 💾 Save/load preset configurations
+- 🎬 Animated GIF export for command sequences
+- 🔗 URL sharing with encoded settings
 
-- Node.js 18+ (or 20+ recommended)
-- Yarn package manager
+## Development
 
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/terminal-snap.git
-cd terminal-snap
-```
-
-2. Install dependencies:
-
-```bash
-yarn install
-```
-
-3. Run the development server:
-
-```bash
-yarn dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+For development setup instructions, see [Quickstart.md](Quickstart.md)
 
 ## Usage
 
