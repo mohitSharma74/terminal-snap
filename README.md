@@ -1,5 +1,10 @@
 # TerminalSnap
 
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Status: In Development](https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge)]()
+
 A beautiful terminal screenshot beautifier built with Next.js. Create stunning terminal screenshots for your documentation, blogs, and presentations.
 
 Featuring a **modern glassmorphic dark theme** with animated mesh gradient backgrounds and floating label form design.
