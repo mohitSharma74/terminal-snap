@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ThemeSelector should match snapshot 1`] = `
+<div
+  class="floating-label-group"
+>
+  <select
+    aria-label="Select terminal theme"
+    class="floating-input appearance-none cursor-pointer pr-10 has-value"
+    id="theme-select"
+    style="background-size: 12px; background-repeat: no-repeat;"
+  >
+    <option
+      value="Dracula"
+    >
+      Dracula
+    </option>
+    <option
+      value="Nord"
+    >
+      Nord
+    </option>
+    <option
+      value="One Dark"
+    >
+      One Dark
+    </option>
+    <option
+      value="Gruvbox Dark"
+    >
+      Gruvbox Dark
+    </option>
+    <option
+      value="Tokyo Night"
+    >
+      Tokyo Night
+    </option>
+    <option
+      value="Solarized Light"
+    >
+      Solarized Light
+    </option>
+    <option
+      value="GitHub Light"
+    >
+      GitHub Light
+    </option>
+  </select>
+  <label
+    class="floating-label"
+    for="theme-select"
+  >
+    Terminal Theme
+  </label>
+</div>
+`;
