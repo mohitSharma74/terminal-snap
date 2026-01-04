@@ -64,4 +64,3 @@ export interface TerminalPreset {
   name: string
   settings: TerminalSettings
 }
-

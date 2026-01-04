@@ -53,20 +53,20 @@ export default function Home() {
 
   const [settings, setSettings] = useState<TerminalSettings>({
     text: defaultTerminalOutput,
-    theme: getThemeByName("Dracula"),
-    background: getBackgroundById("gradient-purple"),
+    theme: getThemeByName("Nord"),
+    background: getBackgroundById("gradient-rainbow"),
     osChrome: "macos",
     shellType: "auto",
     windowTitle: "Terminal",
-    orientation: "landscape",
+    orientation: "portrait",
     padding: {
       landscape: {
         horizontal: 32,
         vertical: 24,
       },
       portrait: {
-        horizontal: 20,
-        vertical: 32,
+        horizontal: 44,
+        vertical: 36,
       },
     },
     dropShadow: true,

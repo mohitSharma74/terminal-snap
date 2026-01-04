@@ -17,31 +17,31 @@ const renderOSChrome = (
   switch (osChrome) {
     case "macos":
       return (
-        <div className="flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-t-lg">
+        <div className="flex items-center gap-2 rounded-t-lg bg-gray-200 px-4 py-2 dark:bg-gray-800">
           <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <div className="w-3 h-3 rounded-full bg-green-500" />
+            <div className="h-3 w-3 rounded-full bg-red-500" />
+            <div className="h-3 w-3 rounded-full bg-yellow-500" />
+            <div className="h-3 w-3 rounded-full bg-green-500" />
           </div>
-          <span className="text-xs text-gray-600 dark:text-gray-400 ml-2">
+          <span className="ml-2 text-xs text-gray-600 dark:text-gray-400">
             {title}
           </span>
         </div>
       )
     case "windows":
       return (
-        <div className="flex items-center justify-between px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-t-lg">
+        <div className="flex items-center justify-between rounded-t-lg bg-gray-200 px-4 py-2 dark:bg-gray-800">
           <span className="text-xs text-gray-600 dark:text-gray-400">
             {title}
           </span>
           <div className="flex gap-2">
-            <div className="w-4 h-4 flex items-center justify-center text-gray-600 dark:text-gray-400">
+            <div className="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400">
               <span className="text-xs">−</span>
             </div>
-            <div className="w-4 h-4 flex items-center justify-center text-gray-600 dark:text-gray-400">
+            <div className="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400">
               <span className="text-xs">□</span>
             </div>
-            <div className="w-4 h-4 flex items-center justify-center text-gray-600 dark:text-gray-400">
+            <div className="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400">
               <span className="text-xs">×</span>
             </div>
           </div>
@@ -49,14 +49,14 @@ const renderOSChrome = (
       )
     case "linux":
       return (
-        <div className="flex items-center justify-between px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-t-lg">
+        <div className="flex items-center justify-between rounded-t-lg bg-gray-200 px-4 py-2 dark:bg-gray-800">
           <span className="text-xs text-gray-600 dark:text-gray-400">
             {title}
           </span>
           <div className="flex gap-1">
-            <div className="w-3 h-3 rounded-full bg-gray-400" />
-            <div className="w-3 h-3 rounded-full bg-gray-400" />
-            <div className="w-3 h-3 rounded-full bg-gray-400" />
+            <div className="h-3 w-3 rounded-full bg-gray-400" />
+            <div className="h-3 w-3 rounded-full bg-gray-400" />
+            <div className="h-3 w-3 rounded-full bg-gray-400" />
           </div>
         </div>
       )
@@ -88,7 +88,7 @@ export const TerminalPreview = ({
   return (
     <div
       ref={previewRef}
-      className="w-full mx-auto transition-all duration-300"
+      className="mx-auto w-full transition-all duration-300"
       style={{
         background: settings.background.css,
         padding: paddingStyle,
@@ -99,17 +99,19 @@ export const TerminalPreview = ({
     >
       <div
         className={cn(
-          "rounded-lg overflow-hidden",
+          "overflow-hidden rounded-lg",
           hasChrome && "rounded-t-none"
         )}
         style={{
           backgroundColor: settings.theme.background,
-          boxShadow: settings.dropShadow ? "0 20px 68px rgba(0, 0, 0, 0.55)" : "none",
+          boxShadow: settings.dropShadow
+            ? "0 20px 68px rgba(0, 0, 0, 0.55)"
+            : "none",
         }}
       >
         {hasChrome && renderOSChrome(settings.osChrome, windowTitle)}
         <div
-          className="p-6 font-mono text-sm leading-relaxed overflow-auto transition-all duration-300"
+          className="overflow-auto p-6 font-mono text-sm leading-relaxed transition-all duration-300"
           style={{
             backgroundColor: settings.theme.background,
             color: settings.theme.foreground,
@@ -125,4 +127,3 @@ export const TerminalPreview = ({
     </div>
   )
 }
-

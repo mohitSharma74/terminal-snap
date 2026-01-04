@@ -9,10 +9,7 @@ const GlassCard = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "glass-card rounded-lg border shadow-sm",
-      className
-    )}
+    className={cn("glass-card rounded-lg border shadow-sm", className)}
     {...props}
   />
 ))
@@ -85,4 +82,3 @@ export {
   GlassCardDescription,
   GlassCardContent,
 }
-

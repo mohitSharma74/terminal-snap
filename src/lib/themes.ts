@@ -167,5 +167,3 @@ export const themes: TerminalTheme[] = [
 export const getThemeByName = (name: string): TerminalTheme => {
   return themes.find((theme) => theme.name === name) || themes[0]
 }
-
-

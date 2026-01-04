@@ -66,5 +66,3 @@ export const backgrounds: BackgroundPreset[] = [
 export const getBackgroundById = (id: string): BackgroundPreset => {
   return backgrounds.find((bg) => bg.id === id) || backgrounds[0]
 }
-
-

@@ -3,8 +3,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-export interface FloatingInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface FloatingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
 }
 
@@ -46,4 +45,3 @@ const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
 FloatingInput.displayName = "FloatingInput"
 
 export { FloatingInput }
-

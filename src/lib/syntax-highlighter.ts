@@ -3,7 +3,7 @@ import type { ShellType } from "@/types"
 
 export const detectShellType = (text: string): ShellType => {
   const lines = text.split("\n").slice(0, 10)
-  
+
   for (const line of lines) {
     if (line.trim().match(/^\$|^#/)) {
       return "bash"
@@ -15,7 +15,7 @@ export const detectShellType = (text: string): ShellType => {
       return "powershell"
     }
   }
-  
+
   return "bash"
 }
 
@@ -24,16 +24,16 @@ export const highlightSyntax = async (
   shellType: ShellType
 ): Promise<string> => {
   const detectedType = shellType === "auto" ? detectShellType(text) : shellType
-  
+
   const languageMap: Record<ShellType, string> = {
     bash: "bash",
     zsh: "bash",
     powershell: "powershell",
     auto: "bash",
   }
-  
+
   const language = languageMap[detectedType] || "bash"
-  
+
   try {
     const html = await codeToHtml(text, {
       lang: language,
@@ -45,5 +45,3 @@ export const highlightSyntax = async (
     return text
   }
 }
-
-
