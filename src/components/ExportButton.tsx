@@ -29,13 +29,13 @@ export const ExportButton = ({ previewRef }: ExportButtonProps) => {
   }
 
   return (
-    <div className="relative w-full group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#667eea] rounded-lg opacity-0 group-hover:opacity-100 transition duration-300 animate-gradient-rotate blur-sm"></div>
+    <div className="group relative w-full">
+      <div className="animate-gradient-rotate absolute -inset-0.5 rounded-lg bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#667eea] opacity-0 blur-sm transition duration-300 group-hover:opacity-100"></div>
       <ModernButton
         onClick={handleExport}
         disabled={isExporting}
         fullWidth
-        className="relative w-full bg-gradient-to-r from-[#667eea] to-[#764ba2] hover:from-[#5568d3] hover:to-[#6a3f91] text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200"
+        className="relative w-full border-0 bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg transition-all duration-200 hover:from-[#5568d3] hover:to-[#6a3f91] hover:shadow-xl"
         aria-label="Export as PNG"
       >
         <Download className="mr-2 h-4 w-4" />
@@ -44,5 +44,3 @@ export const ExportButton = ({ previewRef }: ExportButtonProps) => {
     </div>
   )
 }
-
-

@@ -6,9 +6,15 @@ export const exportAsPNG = async (
 ): Promise<void> => {
   try {
     // Find all scrollable elements within the preview and temporarily adjust them
-    const scrollableElements = element.querySelectorAll('[data-scrollable="true"]')
-    const originalStyles: { element: HTMLElement; maxHeight: string; overflow: string }[] = []
-    
+    const scrollableElements = element.querySelectorAll(
+      '[data-scrollable="true"]'
+    )
+    const originalStyles: {
+      element: HTMLElement
+      maxHeight: string
+      overflow: string
+    }[] = []
+
     // Store original styles and remove constraints
     scrollableElements.forEach((el) => {
       const htmlEl = el as HTMLElement
@@ -17,8 +23,8 @@ export const exportAsPNG = async (
         maxHeight: htmlEl.style.maxHeight,
         overflow: htmlEl.style.overflow,
       })
-      htmlEl.style.maxHeight = 'none'
-      htmlEl.style.overflow = 'visible'
+      htmlEl.style.maxHeight = "none"
+      htmlEl.style.overflow = "visible"
     })
 
     // Capture the image with full content visible
@@ -28,13 +34,13 @@ export const exportAsPNG = async (
       backgroundColor: "#ffffff",
       cacheBust: true,
     })
-    
+
     // Restore original styles
     originalStyles.forEach(({ element, maxHeight, overflow }) => {
       element.style.maxHeight = maxHeight
       element.style.overflow = overflow
     })
-    
+
     const link = document.createElement("a")
     link.download = filename
     link.href = dataUrl
@@ -44,5 +50,3 @@ export const exportAsPNG = async (
     throw error
   }
 }
-
-

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BackgroundSelector should match snapshot 1`] = `
+<div
+  class="floating-label-group"
+>
+  <select
+    aria-label="Select background"
+    class="floating-input appearance-none cursor-pointer pr-10 has-value"
+    id="background-select"
+    style="background-size: 12px; background-repeat: no-repeat;"
+  >
+    <option
+      value="gradient-purple"
+    >
+      Purple Gradient
+    </option>
+    <option
+      value="gradient-blue"
+    >
+      Blue Gradient
+    </option>
+    <option
+      value="gradient-pink"
+    >
+      Pink Gradient
+    </option>
+    <option
+      value="gradient-green"
+    >
+      Green Gradient
+    </option>
+    <option
+      value="gradient-orange"
+    >
+      Orange Gradient
+    </option>
+    <option
+      value="solid-white"
+    >
+      White
+    </option>
+    <option
+      value="solid-gray"
+    >
+      Light Gray
+    </option>
+    <option
+      value="solid-dark"
+    >
+      Dark Gray
+    </option>
+    <option
+      value="gradient-dark"
+    >
+      Dark Gradient
+    </option>
+    <option
+      value="gradient-rainbow"
+    >
+      Rainbow Gradient
+    </option>
+  </select>
+  <label
+    class="floating-label"
+    for="background-select"
+  >
+    Background
+  </label>
+</div>
+`;

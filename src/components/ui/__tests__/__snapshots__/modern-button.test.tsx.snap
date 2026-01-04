@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ModernButton should match snapshot with default variant 1`] = `
+<button
+  class="modern-button modern-button-primary"
+>
+  Click me
+</button>
+`;
+
+exports[`ModernButton should match snapshot with fullWidth prop 1`] = `
+<button
+  class="modern-button modern-button-primary modern-button-full"
+>
+  Click me
+</button>
+`;
+
+exports[`ModernButton should match snapshot with outline variant 1`] = `
+<button
+  class="modern-button modern-button-outline"
+>
+  Click me
+</button>
+`;
+
+exports[`ModernButton should match snapshot with secondary variant 1`] = `
+<button
+  class="modern-button modern-button-secondary"
+>
+  Click me
+</button>
+`;

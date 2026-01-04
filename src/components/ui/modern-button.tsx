@@ -3,21 +3,14 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-export interface ModernButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ModernButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline"
   fullWidth?: boolean
 }
 
 const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
   (
-    {
-      className,
-      variant = "primary",
-      fullWidth = false,
-      children,
-      ...props
-    },
+    { className, variant = "primary", fullWidth = false, children, ...props },
     ref
   ) => {
     return (
@@ -42,4 +35,3 @@ const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
 ModernButton.displayName = "ModernButton"
 
 export { ModernButton }
-

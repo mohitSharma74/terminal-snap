@@ -54,4 +54,3 @@ const ModernRadio = React.forwardRef<HTMLDivElement, ModernRadioProps>(
 ModernRadio.displayName = "ModernRadio"
 
 export { ModernRadio }
-

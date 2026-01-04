@@ -33,5 +33,3 @@ export const ThemeSelector = ({ value, onChange }: ThemeSelectorProps) => {
     </FloatingSelect>
   )
 }
-
-

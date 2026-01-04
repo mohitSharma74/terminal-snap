@@ -54,13 +54,13 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     background: #050816;
@@ -68,62 +68,78 @@
     position: relative;
     z-index: 0;
   }
-  
+
   /* Mesh Gradient Blobs */
   body::before {
-    content: '';
+    content: "";
     position: fixed;
     top: -20%;
     right: -10%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.4) 0%,
+      rgba(6, 182, 212, 0) 70%
+    );
     border-radius: 50%;
     filter: blur(100px);
     animation: blob-float-1 25s ease-in-out infinite;
     z-index: -1;
     pointer-events: none;
   }
-  
+
   body::after {
-    content: '';
+    content: "";
     position: fixed;
     bottom: -15%;
     left: -10%;
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.4) 0%,
+      rgba(59, 130, 246, 0) 70%
+    );
     border-radius: 50%;
     filter: blur(120px);
     animation: blob-float-2 30s ease-in-out infinite;
     z-index: -1;
     pointer-events: none;
   }
-  
+
   html::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.3) 0%,
+      rgba(99, 102, 241, 0) 70%
+    );
     border-radius: 50%;
     filter: blur(100px);
     animation: blob-float-3 20s ease-in-out infinite;
     z-index: -1;
     pointer-events: none;
   }
-  
+
   html::after {
-    content: '';
+    content: "";
     position: fixed;
     top: 10%;
     left: -5%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.25) 0%,
+      rgba(6, 182, 212, 0) 70%
+    );
     border-radius: 50%;
     filter: blur(90px);
     animation: blob-float-4 28s ease-in-out infinite;
@@ -133,7 +149,8 @@
 }
 
 @keyframes blob-float-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
@@ -145,7 +162,8 @@
 }
 
 @keyframes blob-float-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -154,7 +172,8 @@
 }
 
 @keyframes blob-float-3 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
@@ -163,7 +182,8 @@
 }
 
 @keyframes blob-float-4 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -245,7 +265,9 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
   color: #e5e7eb;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .floating-input::placeholder {
@@ -255,13 +277,18 @@
 .floating-input:hover:not(:disabled):not(:focus) {
   border-color: rgba(6, 182, 212, 0.5);
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
 
 .floating-input:focus {
   border-color: #06b6d4;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2), 0 8px 16px -4px rgba(6, 182, 212, 0.3), 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 0 0 3px rgba(6, 182, 212, 0.2),
+    0 8px 16px -4px rgba(6, 182, 212, 0.3),
+    0 4px 6px -1px rgba(0, 0, 0, 0.4);
 }
 
 .floating-input:disabled {
@@ -284,24 +311,34 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(6, 182, 212, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
   border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.2), 0 0 0 1px rgba(6, 182, 212, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px 0 rgba(6, 182, 212, 0.2),
+    0 0 0 1px rgba(6, 182, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .dark .glass-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1.5px solid rgba(6, 182, 212, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .dark .glass-card:hover {
   border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.2), 0 0 0 1px rgba(6, 182, 212, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px 0 rgba(6, 182, 212, 0.2),
+    0 0 0 1px rgba(6, 182, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Glassmorphic Checkbox */
@@ -338,7 +375,9 @@
 .modern-checkbox-input:checked {
   background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
   border-color: #06b6d4;
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2), 0 4px 8px rgba(6, 182, 212, 0.3);
+  box-shadow:
+    0 0 0 3px rgba(6, 182, 212, 0.2),
+    0 4px 8px rgba(6, 182, 212, 0.3);
 }
 
 .modern-checkbox-input:checked::after {
@@ -469,13 +508,17 @@
   background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4), 0 0 0 2px rgba(10, 14, 39, 0.8);
+  box-shadow:
+    0 2px 8px rgba(6, 182, 212, 0.4),
+    0 0 0 2px rgba(10, 14, 39, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .modern-slider-input::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.6), 0 0 0 3px rgba(6, 182, 212, 0.2);
+  box-shadow:
+    0 4px 12px rgba(6, 182, 212, 0.6),
+    0 0 0 3px rgba(6, 182, 212, 0.2);
 }
 
 .modern-slider-input::-moz-range-thumb {
@@ -486,12 +529,16 @@
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4), 0 0 0 2px rgba(10, 14, 39, 0.8);
+  box-shadow:
+    0 2px 8px rgba(6, 182, 212, 0.4),
+    0 0 0 2px rgba(10, 14, 39, 0.8);
 }
 
 .modern-slider-input::-moz-range-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.6), 0 0 0 3px rgba(6, 182, 212, 0.2);
+  box-shadow:
+    0 4px 12px rgba(6, 182, 212, 0.6),
+    0 0 0 3px rgba(6, 182, 212, 0.2);
 }
 
 .modern-slider-input:focus {
@@ -499,11 +546,15 @@
 }
 
 .modern-slider-input:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.3), 0 4px 12px rgba(6, 182, 212, 0.6);
+  box-shadow:
+    0 0 0 4px rgba(6, 182, 212, 0.3),
+    0 4px 12px rgba(6, 182, 212, 0.6);
 }
 
 .modern-slider-input:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.3), 0 4px 12px rgba(6, 182, 212, 0.6);
+  box-shadow:
+    0 0 0 4px rgba(6, 182, 212, 0.3),
+    0 4px 12px rgba(6, 182, 212, 0.6);
 }
 
 /* Glassmorphic Button */
@@ -531,17 +582,29 @@
 }
 
 .modern-button-primary {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.2) 0%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
   border: 1.5px solid rgba(6, 182, 212, 0.4);
   color: #e5e7eb;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .modern-button-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.3) 0%,
+    rgba(59, 130, 246, 0.3) 100%
+  );
   border-color: rgba(6, 182, 212, 0.6);
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px -4px rgba(6, 182, 212, 0.4), 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 8px 16px -4px rgba(6, 182, 212, 0.4),
+    0 4px 6px -1px rgba(0, 0, 0, 0.4);
 }
 
 .modern-button-primary:active:not(:disabled) {

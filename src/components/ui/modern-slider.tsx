@@ -3,8 +3,10 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-export interface ModernSliderProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "onChange"> {
+export interface ModernSliderProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "type" | "onChange"
+> {
   value: number
   onChange: (value: number) => void
   min?: number
@@ -62,4 +64,3 @@ const ModernSlider = React.forwardRef<HTMLInputElement, ModernSliderProps>(
 ModernSlider.displayName = "ModernSlider"
 
 export { ModernSlider }
-
