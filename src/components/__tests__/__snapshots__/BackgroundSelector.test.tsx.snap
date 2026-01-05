@@ -5,10 +5,11 @@ exports[`BackgroundSelector should match snapshot 1`] = `
   class="floating-label-group"
 >
   <select
+    aria-hidden="true"
     aria-label="Select background"
-    class="floating-input appearance-none cursor-pointer pr-10 has-value"
+    class="sr-only"
     id="background-select"
-    style="background-size: 12px; background-repeat: no-repeat;"
+    tabindex="-1"
   >
     <option
       value="gradient-purple"
@@ -61,8 +62,37 @@ exports[`BackgroundSelector should match snapshot 1`] = `
       Rainbow Gradient
     </option>
   </select>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    class="floating-input cursor-pointer appearance-none pr-10 relative has-value"
+    role="button"
+    tabindex="0"
+  >
+    <span
+      class="block truncate"
+    >
+      Purple Gradient
+    </span>
+    <span
+      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+    >
+      <svg
+        class="transition-transform duration-200"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 9L1 4h10z"
+          fill="#06b6d4"
+        />
+      </svg>
+    </span>
+  </div>
   <label
-    class="floating-label"
+    class="floating-label pointer-events-none"
     for="background-select"
   >
     Background

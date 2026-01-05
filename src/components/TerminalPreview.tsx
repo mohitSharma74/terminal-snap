@@ -94,7 +94,7 @@ export const TerminalPreview = ({
         padding: paddingStyle,
         borderRadius: hasChrome ? "0 0 8px 8px" : "8px",
         boxSizing: "content-box",
-        maxWidth: maxWidth,
+        maxWidth: "100%",
       }}
     >
       <div

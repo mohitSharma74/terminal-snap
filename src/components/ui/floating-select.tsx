@@ -7,45 +7,162 @@ export interface FloatingSelectProps extends React.SelectHTMLAttributes<HTMLSele
   label: string
 }
 
+interface SelectOption {
+  value: string
+  label: string
+}
+
 const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
   ({ className, label, id, children, value, onChange, ...props }, ref) => {
     const [hasValue, setHasValue] = React.useState(false)
+    const [isOpen, setIsOpen] = React.useState(false)
+    const [selectedValue, setSelectedValue] = React.useState(value || "")
     const selectId = id || `floating-select-${React.useId()}`
+    const dropdownRef = React.useRef<HTMLDivElement>(null)
 
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setHasValue(e.target.value !== "")
-      onChange?.(e)
-    }
+    // Extract options from children
+    const options: SelectOption[] = React.useMemo(() => {
+      const opts: SelectOption[] = []
+      React.Children.forEach(children, (child) => {
+        if (React.isValidElement(child) && child.type === "option") {
+          opts.push({
+            value: String(child.props.value),
+            label: String(child.props.children),
+          })
+        }
+      })
+      return opts
+    }, [children])
 
+    // Find selected option label
+    const selectedLabel = options.find((opt) => opt.value === selectedValue)?.label || ""
+
+    // Close dropdown when clicking outside
     React.useEffect(() => {
-      if (value) {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+          setIsOpen(false)
+        }
+      }
+
+      if (isOpen) {
+        document.addEventListener("mousedown", handleClickOutside)
+      }
+
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      }
+    }, [isOpen])
+
+    // Update internal state when value prop changes
+    React.useEffect(() => {
+      if (value !== undefined) {
+        setSelectedValue(String(value))
         setHasValue(String(value) !== "")
       }
     }, [value])
 
+    const handleSelect = (optionValue: string) => {
+      setSelectedValue(optionValue)
+      setHasValue(optionValue !== "")
+      setIsOpen(false)
+
+      // Create synthetic event for onChange
+      if (onChange) {
+        const syntheticEvent = {
+          target: { value: optionValue },
+          currentTarget: { value: optionValue },
+        } as React.ChangeEvent<HTMLSelectElement>
+        onChange(syntheticEvent)
+      }
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        setIsOpen(!isOpen)
+      } else if (e.key === "Escape") {
+        setIsOpen(false)
+      } else if (e.key === "ArrowDown" && isOpen) {
+        e.preventDefault()
+        const currentIndex = options.findIndex((opt) => opt.value === selectedValue)
+        const nextIndex = Math.min(currentIndex + 1, options.length - 1)
+        handleSelect(options[nextIndex].value)
+      } else if (e.key === "ArrowUp" && isOpen) {
+        e.preventDefault()
+        const currentIndex = options.findIndex((opt) => opt.value === selectedValue)
+        const prevIndex = Math.max(currentIndex - 1, 0)
+        handleSelect(options[prevIndex].value)
+      }
+    }
+
     return (
-      <div className="floating-label-group">
+      <div className="floating-label-group" ref={dropdownRef}>
+        {/* Hidden native select for form compatibility */}
         <select
-          id={selectId}
           ref={ref}
-          className={cn(
-            "floating-input cursor-pointer appearance-none pr-10",
-            hasValue && "has-value",
-            className
-          )}
-          value={value}
-          onChange={handleChange}
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2306b6d4' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-            backgroundPosition: "right 0.75rem center",
-            backgroundSize: "12px",
-            backgroundRepeat: "no-repeat",
-          }}
+          id={selectId}
+          value={selectedValue}
+          onChange={onChange}
+          className="sr-only"
+          tabIndex={-1}
+          aria-hidden="true"
           {...props}
         >
           {children}
         </select>
-        <label htmlFor={selectId} className="floating-label">
+
+        {/* Custom dropdown trigger */}
+        <div
+          role="button"
+          tabIndex={0}
+          aria-expanded={isOpen}
+          aria-haspopup="listbox"
+          className={cn(
+            "floating-input cursor-pointer appearance-none pr-10 relative",
+            hasValue && "has-value",
+            className
+          )}
+          onClick={() => setIsOpen(!isOpen)}
+          onKeyDown={handleKeyDown}
+        >
+          <span className="block truncate">{selectedLabel}</span>
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              className={cn("transition-transform duration-200", isOpen && "rotate-180")}
+            >
+              <path fill="#06b6d4" d="M6 9L1 4h10z" />
+            </svg>
+          </span>
+        </div>
+
+        {/* Custom dropdown menu */}
+        {isOpen && (
+          <div className="custom-dropdown-menu">
+            <ul role="listbox" className="custom-dropdown-list">
+              {options.map((option) => (
+                <li
+                  key={option.value}
+                  role="option"
+                  aria-selected={option.value === selectedValue}
+                  className={cn(
+                    "custom-dropdown-option",
+                    option.value === selectedValue && "custom-dropdown-option-selected"
+                  )}
+                  onClick={() => handleSelect(option.value)}
+                >
+                  {option.label}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <label htmlFor={selectId} className="floating-label pointer-events-none">
           {label}
         </label>
       </div>

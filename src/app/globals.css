@@ -305,6 +305,97 @@
   padding-right: 2.5rem;
 }
 
+/* Custom Dropdown Menu Styling */
+.custom-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(10, 14, 39, 0.98); /* Deep dark blue matching theme */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(6, 182, 212, 0.3);
+  border-radius: 0.75rem;
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(6, 182, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  animation: dropdown-fade-in 0.2s ease-out;
+}
+
+@keyframes dropdown-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.custom-dropdown-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-dropdown-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.custom-dropdown-list::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 4px;
+}
+
+.custom-dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.5);
+}
+
+.custom-dropdown-option {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.custom-dropdown-option:hover {
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+  transform: translateX(4px);
+}
+
+.custom-dropdown-option-selected {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.2) 0%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
+  color: #06b6d4;
+  font-weight: 600;
+}
+
+.custom-dropdown-option-selected:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.3) 0%,
+    rgba(59, 130, 246, 0.3) 100%
+  );
+}
+
 /* Glassmorphic Card */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
