@@ -32,7 +32,7 @@ describe("ThemeSelector", () => {
     fireEvent.click(trigger)
 
     // Check that all theme options are displayed in the listbox
-    const listbox = screen.getByRole("listbox")
+    screen.getByRole("listbox")
     const options = screen.getAllByRole("option")
 
     // Should have same number of options as themes (excluding hidden select options)
@@ -52,7 +52,9 @@ describe("ThemeSelector", () => {
     expect(trigger).toHaveTextContent(themes[1].name)
 
     // Also check the hidden native select has the correct value
-    const hiddenSelect = document.querySelector("select.sr-only") as HTMLSelectElement
+    const hiddenSelect = document.querySelector(
+      "select.sr-only"
+    ) as HTMLSelectElement
     expect(hiddenSelect).toHaveValue(themes[1].name)
   })
 
@@ -65,7 +67,7 @@ describe("ThemeSelector", () => {
 
     // Click on "Nord" theme option (index 1 in themes array)
     const options = screen.getAllByRole("option")
-    const nordIndex = themes.findIndex(t => t.name === "Nord")
+    const nordIndex = themes.findIndex((t) => t.name === "Nord")
     fireEvent.click(options[nordIndex])
 
     // Verify onChange was called with the Nord theme
@@ -86,7 +88,7 @@ describe("ThemeSelector", () => {
 
     // Select a theme
     const options = screen.getAllByRole("option")
-    const nordIndex = themes.findIndex(t => t.name === "Nord")
+    const nordIndex = themes.findIndex((t) => t.name === "Nord")
     fireEvent.click(options[nordIndex])
 
     // Verify dropdown is closed
@@ -97,7 +99,9 @@ describe("ThemeSelector", () => {
     render(<ThemeSelector value={themes[0]} onChange={mockOnChange} />)
 
     // Manually trigger the hidden select with non-existent theme
-    const hiddenSelect = document.querySelector("select.sr-only") as HTMLSelectElement
+    const hiddenSelect = document.querySelector(
+      "select.sr-only"
+    ) as HTMLSelectElement
     fireEvent.change(hiddenSelect, { target: { value: "NonExistentTheme" } })
 
     expect(mockOnChange).not.toHaveBeenCalled()

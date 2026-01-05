@@ -21,6 +21,7 @@ describe("export", () => {
       download: "",
       href: "",
       click: mockClickFn,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any
 
     jest.spyOn(document, "createElement").mockReturnValue(mockLink)
@@ -109,8 +110,6 @@ describe("export", () => {
       const scrollableEl = mockElement.querySelector(
         '[data-scrollable="true"]'
       ) as HTMLElement
-      const originalMaxHeight = scrollableEl.style.maxHeight
-      const originalOverflow = scrollableEl.style.overflow
 
       ;(toPng as jest.Mock).mockRejectedValue(new Error("Export failed"))
 

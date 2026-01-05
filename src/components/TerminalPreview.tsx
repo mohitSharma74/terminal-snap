@@ -19,9 +19,9 @@ const renderOSChrome = (
       return (
         <div className="flex items-center gap-2 rounded-t-lg bg-gray-200 px-4 py-2 dark:bg-gray-800">
           <div className="flex gap-1.5">
-            <div className="h-3 w-3 rounded-full bg-red-500" />
-            <div className="h-3 w-3 rounded-full bg-yellow-500" />
-            <div className="h-3 w-3 rounded-full bg-green-500" />
+            <div className="size-3 rounded-full bg-red-500" />
+            <div className="size-3 rounded-full bg-yellow-500" />
+            <div className="size-3 rounded-full bg-green-500" />
           </div>
           <span className="ml-2 text-xs text-gray-600 dark:text-gray-400">
             {title}
@@ -35,13 +35,13 @@ const renderOSChrome = (
             {title}
           </span>
           <div className="flex gap-2">
-            <div className="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400">
+            <div className="flex size-4 items-center justify-center text-gray-600 dark:text-gray-400">
               <span className="text-xs">−</span>
             </div>
-            <div className="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400">
+            <div className="flex size-4 items-center justify-center text-gray-600 dark:text-gray-400">
               <span className="text-xs">□</span>
             </div>
-            <div className="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400">
+            <div className="flex size-4 items-center justify-center text-gray-600 dark:text-gray-400">
               <span className="text-xs">×</span>
             </div>
           </div>
@@ -54,9 +54,9 @@ const renderOSChrome = (
             {title}
           </span>
           <div className="flex gap-1">
-            <div className="h-3 w-3 rounded-full bg-gray-400" />
-            <div className="h-3 w-3 rounded-full bg-gray-400" />
-            <div className="h-3 w-3 rounded-full bg-gray-400" />
+            <div className="size-3 rounded-full bg-gray-400" />
+            <div className="size-3 rounded-full bg-gray-400" />
+            <div className="size-3 rounded-full bg-gray-400" />
           </div>
         </div>
       )
@@ -83,7 +83,6 @@ export const TerminalPreview = ({
 
   const currentPadding = settings.padding[settings.orientation]
   const paddingStyle = `${currentPadding.vertical}px ${currentPadding.horizontal}px`
-  const maxWidth = settings.orientation === "landscape" ? "1280px" : "448px"
 
   return (
     <div

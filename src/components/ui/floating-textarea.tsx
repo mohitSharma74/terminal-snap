@@ -12,7 +12,8 @@ const FloatingTextarea = React.forwardRef<
   FloatingTextareaProps
 >(({ className, label, id, value, onChange, ...props }, ref) => {
   const [hasValue, setHasValue] = React.useState(false)
-  const textareaId = id || `floating-textarea-${React.useId()}`
+  const generatedId = React.useId()
+  const textareaId = id || `floating-textarea-${generatedId}`
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setHasValue(e.target.value !== "")

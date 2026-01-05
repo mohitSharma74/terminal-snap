@@ -1,4 +1,5 @@
 import { detectShellType, highlightSyntax } from "../syntax-highlighter"
+import { codeToHtml } from "shiki"
 
 // Mock shiki module
 jest.mock("shiki")
@@ -68,7 +69,6 @@ describe("syntax-highlighter", () => {
     })
 
     it("should call codeToHtml with bash language for bash shell type", async () => {
-      const { codeToHtml } = require("shiki")
       const text = "$ npm install"
       await highlightSyntax(text, "bash")
 
@@ -79,7 +79,6 @@ describe("syntax-highlighter", () => {
     })
 
     it("should call codeToHtml with powershell language for powershell shell type", async () => {
-      const { codeToHtml } = require("shiki")
       const text = "> Get-Process"
       await highlightSyntax(text, "powershell")
 
@@ -90,7 +89,6 @@ describe("syntax-highlighter", () => {
     })
 
     it('should auto-detect shell type when shellType is "auto"', async () => {
-      const { codeToHtml } = require("shiki")
       const text = "> Get-Date"
       await highlightSyntax(text, "auto")
 
@@ -101,7 +99,6 @@ describe("syntax-highlighter", () => {
     })
 
     it("should map zsh to bash language", async () => {
-      const { codeToHtml } = require("shiki")
       const text = "% zsh command"
       await highlightSyntax(text, "zsh")
 
@@ -112,8 +109,7 @@ describe("syntax-highlighter", () => {
     })
 
     it("should return original text on error", async () => {
-      const { codeToHtml } = require("shiki")
-      codeToHtml.mockRejectedValueOnce(new Error("Shiki error"))
+      ;(codeToHtml as jest.Mock).mockRejectedValueOnce(new Error("Shiki error"))
 
       const text = "$ npm install"
       const result = await highlightSyntax(text, "bash")

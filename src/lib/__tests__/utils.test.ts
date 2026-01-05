@@ -20,6 +20,7 @@ describe("utils", () => {
 
     it("should merge Tailwind conflicting classes correctly", () => {
       // tailwind-merge should keep the last class when conflicts occur
+      // eslint-disable-next-line tailwindcss/no-contradicting-classname
       expect(cn("px-4", "px-8")).toBe("px-8")
     })
 
@@ -42,7 +43,9 @@ describe("utils", () => {
     })
 
     it("should merge complex Tailwind utilities", () => {
+      // eslint-disable-next-line tailwindcss/no-contradicting-classname
       expect(cn("text-sm", "text-lg")).toBe("text-lg")
+      // eslint-disable-next-line tailwindcss/no-contradicting-classname
       expect(cn("bg-red-500", "bg-blue-500")).toBe("bg-blue-500")
     })
 

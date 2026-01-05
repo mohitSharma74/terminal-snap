@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Image from "next/image"
 import { TextInput } from "@/components/TextInput"
 import { ThemeSelector } from "@/components/ThemeSelector"
 import { BackgroundSelector } from "@/components/BackgroundSelector"
@@ -121,9 +122,11 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-4 text-center">
           <div className="flex items-center justify-center">
-            <img
+            <Image
               src="/hero-with-subtitle.svg"
               alt="TerminalSnap"
+              width={500}
+              height={100}
               className="mx-auto mb-1 w-1/2"
             />
           </div>

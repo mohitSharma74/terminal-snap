@@ -12,7 +12,8 @@ export interface ModernCheckboxProps extends Omit<
 
 const ModernCheckbox = React.forwardRef<HTMLInputElement, ModernCheckboxProps>(
   ({ className, label, id, checked, onChange, ...props }, ref) => {
-    const checkboxId = id || `modern-checkbox-${React.useId()}`
+    const generatedId = React.useId()
+    const checkboxId = id || `modern-checkbox-${generatedId}`
 
     return (
       <div className="modern-checkbox-wrapper">

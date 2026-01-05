@@ -17,7 +17,8 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
     const [hasValue, setHasValue] = React.useState(false)
     const [isOpen, setIsOpen] = React.useState(false)
     const [selectedValue, setSelectedValue] = React.useState(value || "")
-    const selectId = id || `floating-select-${React.useId()}`
+    const generatedId = React.useId()
+    const selectId = id || `floating-select-${generatedId}`
     const dropdownRef = React.useRef<HTMLDivElement>(null)
 
     // Extract options from children
@@ -35,12 +36,16 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
     }, [children])
 
     // Find selected option label
-    const selectedLabel = options.find((opt) => opt.value === selectedValue)?.label || ""
+    const selectedLabel =
+      options.find((opt) => opt.value === selectedValue)?.label || ""
 
     // Close dropdown when clicking outside
     React.useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target as Node)
+        ) {
           setIsOpen(false)
         }
       }
@@ -85,12 +90,16 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
         setIsOpen(false)
       } else if (e.key === "ArrowDown" && isOpen) {
         e.preventDefault()
-        const currentIndex = options.findIndex((opt) => opt.value === selectedValue)
+        const currentIndex = options.findIndex(
+          (opt) => opt.value === selectedValue
+        )
         const nextIndex = Math.min(currentIndex + 1, options.length - 1)
         handleSelect(options[nextIndex].value)
       } else if (e.key === "ArrowUp" && isOpen) {
         e.preventDefault()
-        const currentIndex = options.findIndex((opt) => opt.value === selectedValue)
+        const currentIndex = options.findIndex(
+          (opt) => opt.value === selectedValue
+        )
         const prevIndex = Math.max(currentIndex - 1, 0)
         handleSelect(options[prevIndex].value)
       }
@@ -119,7 +128,7 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           className={cn(
-            "floating-input cursor-pointer appearance-none pr-10 relative",
+            "floating-input relative cursor-pointer appearance-none pr-10",
             hasValue && "has-value",
             className
           )}
@@ -127,13 +136,16 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
           onKeyDown={handleKeyDown}
         >
           <span className="block truncate">{selectedLabel}</span>
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"
               height="12"
               viewBox="0 0 12 12"
-              className={cn("transition-transform duration-200", isOpen && "rotate-180")}
+              className={cn(
+                "transition-transform duration-200",
+                isOpen && "rotate-180"
+              )}
             >
               <path fill="#06b6d4" d="M6 9L1 4h10z" />
             </svg>
@@ -151,7 +163,8 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
                   aria-selected={option.value === selectedValue}
                   className={cn(
                     "custom-dropdown-option",
-                    option.value === selectedValue && "custom-dropdown-option-selected"
+                    option.value === selectedValue &&
+                      "custom-dropdown-option-selected"
                   )}
                   onClick={() => handleSelect(option.value)}
                 >
@@ -162,7 +175,10 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
           </div>
         )}
 
-        <label htmlFor={selectId} className="floating-label pointer-events-none">
+        <label
+          htmlFor={selectId}
+          className="floating-label pointer-events-none"
+        >
           {label}
         </label>
       </div>

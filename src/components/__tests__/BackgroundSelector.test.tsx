@@ -25,14 +25,16 @@ describe("BackgroundSelector", () => {
   })
 
   it("should display all available backgrounds as options when dropdown is opened", () => {
-    render(<BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
 
     // Open the custom dropdown
     const trigger = screen.getByRole("button")
     fireEvent.click(trigger)
 
     // Check that all background options are displayed in the listbox
-    const listbox = screen.getByRole("listbox")
+    screen.getByRole("listbox")
     const options = screen.getAllByRole("option")
 
     // Should have same number of options as backgrounds (excluding hidden select options)
@@ -45,19 +47,25 @@ describe("BackgroundSelector", () => {
   })
 
   it("should show currently selected background value", () => {
-    render(<BackgroundSelector value={backgrounds[1]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[1]} onChange={mockOnChange} />
+    )
 
     // The selected background name should be displayed in the trigger button
     const trigger = screen.getByRole("button")
     expect(trigger).toHaveTextContent(backgrounds[1].name)
 
     // Also check the hidden native select has the correct value
-    const hiddenSelect = document.querySelector("select.sr-only") as HTMLSelectElement
+    const hiddenSelect = document.querySelector(
+      "select.sr-only"
+    ) as HTMLSelectElement
     expect(hiddenSelect).toHaveValue(backgrounds[1].id)
   })
 
   it("should call onChange when background is selected via custom dropdown", () => {
-    render(<BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
 
     // Find a background to select (using first available background that's not already selected)
     const targetBg = backgrounds[1]
@@ -77,7 +85,9 @@ describe("BackgroundSelector", () => {
   })
 
   it("should close dropdown after selecting a background", () => {
-    render(<BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
 
     // Open the dropdown
     const trigger = screen.getByRole("button")
@@ -95,23 +105,31 @@ describe("BackgroundSelector", () => {
   })
 
   it("should not call onChange when non-existent background is selected", () => {
-    render(<BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
 
     // Manually trigger the hidden select with non-existent background
-    const hiddenSelect = document.querySelector("select.sr-only") as HTMLSelectElement
+    const hiddenSelect = document.querySelector(
+      "select.sr-only"
+    ) as HTMLSelectElement
     fireEvent.change(hiddenSelect, { target: { value: "non-existent-bg" } })
 
     expect(mockOnChange).not.toHaveBeenCalled()
   })
 
   it("should have proper accessibility label", () => {
-    render(<BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
 
     expect(screen.getByLabelText("Background")).toBeInTheDocument()
   })
 
   it("should open dropdown with keyboard (Enter key)", () => {
-    render(<BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
 
     const trigger = screen.getByRole("button")
     fireEvent.keyDown(trigger, { key: "Enter" })
@@ -121,7 +139,9 @@ describe("BackgroundSelector", () => {
   })
 
   it("should mark currently selected background in dropdown", () => {
-    render(<BackgroundSelector value={backgrounds[1]} onChange={mockOnChange} />)
+    render(
+      <BackgroundSelector value={backgrounds[1]} onChange={mockOnChange} />
+    )
 
     // Open dropdown
     const trigger = screen.getByRole("button")

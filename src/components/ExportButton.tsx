@@ -38,7 +38,7 @@ export const ExportButton = ({ previewRef }: ExportButtonProps) => {
         className="relative w-full border-0 bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg transition-all duration-200 hover:from-[#5568d3] hover:to-[#6a3f91] hover:shadow-xl"
         aria-label="Export as PNG"
       >
-        <Download className="mr-2 h-4 w-4" />
+        <Download className="mr-2 size-4" />
         {isExporting ? "Exporting..." : "Export as PNG"}
       </ModernButton>
     </div>

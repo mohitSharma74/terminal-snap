@@ -1,14 +1,21 @@
 "use client"
 
+import Image from "next/image"
 import { ModernButton } from "@/components/ui/modern-button"
 
 export default function Navbar() {
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-cyan-500/30 bg-black/20 backdrop-blur-md">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-cyan-500/30 bg-black/20 backdrop-blur-md">
       <div className="container mx-auto px-4 py-3">
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0">
           <div className="flex items-center gap-2">
-            <img src="/icon.svg" alt="TerminalSnap" className="h-8 w-8" />
+            <Image
+              src="/icon.svg"
+              alt="TerminalSnap"
+              width={32}
+              height={32}
+              className="size-8"
+            />
             <span className="text-xl font-bold text-white">TerminalSnap</span>
           </div>
 
@@ -25,7 +32,7 @@ export default function Navbar() {
               className="flex items-center gap-2"
             >
               <svg
-                className="h-5 w-5"
+                className="size-5"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"

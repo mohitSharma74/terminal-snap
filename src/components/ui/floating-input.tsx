@@ -10,7 +10,8 @@ export interface FloatingInputProps extends React.InputHTMLAttributes<HTMLInputE
 const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
   ({ className, label, id, value, onChange, ...props }, ref) => {
     const [hasValue, setHasValue] = React.useState(false)
-    const inputId = id || `floating-input-${React.useId()}`
+    const generatedId = React.useId()
+    const inputId = id || `floating-input-${generatedId}`
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setHasValue(e.target.value !== "")
