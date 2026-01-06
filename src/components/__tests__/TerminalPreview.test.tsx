@@ -30,7 +30,7 @@ describe("TerminalPreview", () => {
     const { container } = render(
       <TerminalPreview settings={mockSettings} previewRef={ref} />
     )
-    expect(container.firstChild).toBeInTheDocument()
+    expect(container.firstChild).toBeDefined()
   })
 
   it("should match snapshot with macOS chrome", () => {

@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running format check..."
+npm run format:check
+if [ $? -ne 0 ]; then
+  echo "❌ Format check failed. Run 'npm run format' to fix."
+  exit 1
+fi
+
+echo "🔍 Running lint..."
+npm run lint
+if [ $? -ne 0 ]; then
+  echo "❌ Linting failed. Fix the issues and try again."
+  exit 1
+fi
+
+echo "🔍 Running tests with coverage..."
+npm run test:ci
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Fix the failing tests and try again."
+  exit 1
+fi
+
+echo "✅ All checks passed! Ready to push."
+exit 0

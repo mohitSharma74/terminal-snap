@@ -16,13 +16,13 @@ exports[`TerminalPreview should match snapshot in portrait orientation 1`] = `
         class="flex gap-1.5"
       >
         <div
-          class="h-3 w-3 rounded-full bg-red-500"
+          class="size-3 rounded-full bg-red-500"
         />
         <div
-          class="h-3 w-3 rounded-full bg-yellow-500"
+          class="size-3 rounded-full bg-yellow-500"
         />
         <div
-          class="h-3 w-3 rounded-full bg-green-500"
+          class="size-3 rounded-full bg-green-500"
         />
       </div>
       <span
@@ -64,13 +64,13 @@ exports[`TerminalPreview should match snapshot with Linux chrome 1`] = `
         class="flex gap-1"
       >
         <div
-          class="h-3 w-3 rounded-full bg-gray-400"
+          class="size-3 rounded-full bg-gray-400"
         />
         <div
-          class="h-3 w-3 rounded-full bg-gray-400"
+          class="size-3 rounded-full bg-gray-400"
         />
         <div
-          class="h-3 w-3 rounded-full bg-gray-400"
+          class="size-3 rounded-full bg-gray-400"
         />
       </div>
     </div>
@@ -107,7 +107,7 @@ exports[`TerminalPreview should match snapshot with Windows chrome 1`] = `
         class="flex gap-2"
       >
         <div
-          class="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400"
+          class="flex size-4 items-center justify-center text-gray-600 dark:text-gray-400"
         >
           <span
             class="text-xs"
@@ -116,7 +116,7 @@ exports[`TerminalPreview should match snapshot with Windows chrome 1`] = `
           </span>
         </div>
         <div
-          class="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400"
+          class="flex size-4 items-center justify-center text-gray-600 dark:text-gray-400"
         >
           <span
             class="text-xs"
@@ -125,7 +125,7 @@ exports[`TerminalPreview should match snapshot with Windows chrome 1`] = `
           </span>
         </div>
         <div
-          class="flex h-4 w-4 items-center justify-center text-gray-600 dark:text-gray-400"
+          class="flex size-4 items-center justify-center text-gray-600 dark:text-gray-400"
         >
           <span
             class="text-xs"
@@ -163,13 +163,13 @@ exports[`TerminalPreview should match snapshot with drop shadow disabled 1`] = `
         class="flex gap-1.5"
       >
         <div
-          class="h-3 w-3 rounded-full bg-red-500"
+          class="size-3 rounded-full bg-red-500"
         />
         <div
-          class="h-3 w-3 rounded-full bg-yellow-500"
+          class="size-3 rounded-full bg-yellow-500"
         />
         <div
-          class="h-3 w-3 rounded-full bg-green-500"
+          class="size-3 rounded-full bg-green-500"
         />
       </div>
       <span
@@ -206,13 +206,13 @@ exports[`TerminalPreview should match snapshot with macOS chrome 1`] = `
         class="flex gap-1.5"
       >
         <div
-          class="h-3 w-3 rounded-full bg-red-500"
+          class="size-3 rounded-full bg-red-500"
         />
         <div
-          class="h-3 w-3 rounded-full bg-yellow-500"
+          class="size-3 rounded-full bg-yellow-500"
         />
         <div
-          class="h-3 w-3 rounded-full bg-green-500"
+          class="size-3 rounded-full bg-green-500"
         />
       </div>
       <span
