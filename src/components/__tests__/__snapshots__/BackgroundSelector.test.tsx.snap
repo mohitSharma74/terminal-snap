@@ -65,7 +65,7 @@ exports[`BackgroundSelector should match snapshot 1`] = `
   <div
     aria-expanded="false"
     aria-haspopup="listbox"
-    class="floating-input cursor-pointer appearance-none pr-10 relative has-value"
+    class="floating-input relative cursor-pointer appearance-none pr-10 has-value"
     role="button"
     tabindex="0"
   >
@@ -75,7 +75,7 @@ exports[`BackgroundSelector should match snapshot 1`] = `
       Purple Gradient
     </span>
     <span
-      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+      class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
     >
       <svg
         class="transition-transform duration-200"
