@@ -3,10 +3,10 @@
 exports[`TerminalPreview should match snapshot in portrait orientation 1`] = `
 <div
   class="mx-auto w-full transition-all duration-300"
-  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 40px; border-radius: 0 0 8px 8px; box-sizing: content-box; max-width: 100%;"
+  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 40px; border-radius: 8px; box-sizing: content-box; max-width: 100%;"
 >
   <div
-    class="overflow-hidden rounded-lg rounded-t-none"
+    class="overflow-hidden rounded-lg"
     style="background-color: rgb(40, 42, 54); box-shadow: 0 20px 68px rgba(0, 0, 0, 0.55);"
   >
     <div
@@ -46,10 +46,10 @@ exports[`TerminalPreview should match snapshot in portrait orientation 1`] = `
 exports[`TerminalPreview should match snapshot with Linux chrome 1`] = `
 <div
   class="mx-auto w-full transition-all duration-300"
-  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 0 0 8px 8px; box-sizing: content-box; max-width: 100%;"
+  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 8px; box-sizing: content-box; max-width: 100%;"
 >
   <div
-    class="overflow-hidden rounded-lg rounded-t-none"
+    class="overflow-hidden rounded-lg"
     style="background-color: rgb(40, 42, 54); box-shadow: 0 20px 68px rgba(0, 0, 0, 0.55);"
   >
     <div
@@ -89,10 +89,10 @@ exports[`TerminalPreview should match snapshot with Linux chrome 1`] = `
 exports[`TerminalPreview should match snapshot with Windows chrome 1`] = `
 <div
   class="mx-auto w-full transition-all duration-300"
-  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 0 0 8px 8px; box-sizing: content-box; max-width: 100%;"
+  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 8px; box-sizing: content-box; max-width: 100%;"
 >
   <div
-    class="overflow-hidden rounded-lg rounded-t-none"
+    class="overflow-hidden rounded-lg"
     style="background-color: rgb(40, 42, 54); box-shadow: 0 20px 68px rgba(0, 0, 0, 0.55);"
   >
     <div
@@ -150,10 +150,10 @@ exports[`TerminalPreview should match snapshot with Windows chrome 1`] = `
 exports[`TerminalPreview should match snapshot with drop shadow disabled 1`] = `
 <div
   class="mx-auto w-full transition-all duration-300"
-  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 0 0 8px 8px; box-sizing: content-box; max-width: 100%;"
+  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 8px; box-sizing: content-box; max-width: 100%;"
 >
   <div
-    class="overflow-hidden rounded-lg rounded-t-none"
+    class="overflow-hidden rounded-lg"
     style="background-color: rgb(40, 42, 54); box-shadow: none;"
   >
     <div
@@ -193,10 +193,10 @@ exports[`TerminalPreview should match snapshot with drop shadow disabled 1`] = `
 exports[`TerminalPreview should match snapshot with macOS chrome 1`] = `
 <div
   class="mx-auto w-full transition-all duration-300"
-  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 0 0 8px 8px; box-sizing: content-box; max-width: 100%;"
+  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 80px; border-radius: 8px; box-sizing: content-box; max-width: 100%;"
 >
   <div
-    class="overflow-hidden rounded-lg rounded-t-none"
+    class="overflow-hidden rounded-lg"
     style="background-color: rgb(40, 42, 54); box-shadow: 0 20px 68px rgba(0, 0, 0, 0.55);"
   >
     <div

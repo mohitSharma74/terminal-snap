@@ -91,16 +91,13 @@ export const TerminalPreview = ({
       style={{
         background: settings.background.css,
         padding: paddingStyle,
-        borderRadius: hasChrome ? "0 0 8px 8px" : "8px",
+        borderRadius: "8px",
         boxSizing: "content-box",
         maxWidth: "100%",
       }}
     >
       <div
-        className={cn(
-          "overflow-hidden rounded-lg",
-          hasChrome && "rounded-t-none"
-        )}
+        className={cn("overflow-hidden rounded-lg")}
         style={{
           backgroundColor: settings.theme.background,
           boxShadow: settings.dropShadow

@@ -100,6 +100,8 @@ terminal-snap/
 │   │   └── utils.ts                # Utility functions
 │   └── types/            # TypeScript type definitions
 ├── public/               # Static assets
+│   ├── readme/            # README assets
+│   │   └── hero.png               # Hero image
 │   ├── hero.svg                  # Hero logo
 │   ├── hero-with-subtitle.svg    # Hero with subtitle
 │   └── icon.svg                  # Favicon icon
@@ -108,6 +110,8 @@ terminal-snap/
 ├── jest.config.js        # Jest configuration
 └── package.json
 ```
+
+![TerminalSnap Hero](/readme/hero.png)
 
 ## Design System
 

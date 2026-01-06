@@ -6,7 +6,7 @@ Build a web application similar to [carbon.now.sh](http://carbon.now.sh/) but sp
 
 - **Framework**: Next.js 14+ (App Router)
 - **Language**: TypeScript
-- **Package Manager**: yarn
+- **Package Manager**: npm
 - **Styling**: Tailwind CSS + shadcn/ui components
 - **Deployment Target**: Vercel
 

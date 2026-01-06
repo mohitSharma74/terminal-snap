@@ -28,7 +28,7 @@ Before you start contributing, please:
 ### Prerequisites
 
 - Node.js 18+ (20+ recommended)
-- Yarn package manager
+- npm (comes with Node.js)
 
 ### Installation
 
@@ -42,13 +42,13 @@ cd terminal-snap
 2. Install dependencies:
 
 ```bash
-yarn install
+npm install
 ```
 
 3. Start the development server:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
@@ -58,7 +58,7 @@ yarn dev
 Build the project for production:
 
 ```bash
-yarn build
+npm run build
 ```
 
 ## Code Style & Standards
@@ -71,16 +71,16 @@ Before committing, run:
 
 ```bash
 # Check for linting issues
-yarn lint
+npm run lint
 
 # Automatically fix linting issues
-yarn lint:fix
+npm run lint:fix
 
 # Format code with Prettier
-yarn format
+npm run format
 
 # Check code formatting without fixing
-yarn format:check
+npm run format:check
 ```
 
 ### Code Guidelines
@@ -206,8 +206,8 @@ Add any other context or screenshots about the feature request here.
 
 ### 1. Prepare Your PR
 
-1. Ensure your code passes linting: `yarn lint`
-2. Format your code: `yarn format`
+1. Ensure your code passes linting: `npm run lint`
+2. Format your code: `npm run format`
 3. Test your changes thoroughly
 4. Update documentation if needed
 
