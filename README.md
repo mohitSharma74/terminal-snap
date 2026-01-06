@@ -1,5 +1,9 @@
 # TerminalSnap
 
+<div align="center">
+    <img src="./public/readme/hero.png" alt="Project Name" height="40%" width="40%"  />
+</div>
+
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
