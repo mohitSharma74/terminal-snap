@@ -119,7 +119,9 @@ export default function Home() {
     setSettings((prev) => ({ ...prev, dropShadow }))
   }
 
-  const handleTransparentBackgroundChange = (transparentBackground: boolean) => {
+  const handleTransparentBackgroundChange = (
+    transparentBackground: boolean
+  ) => {
     setSettings((prev) => ({ ...prev, transparentBackground }))
   }
 

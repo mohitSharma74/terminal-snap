@@ -119,7 +119,11 @@ describe("themes", () => {
     })
 
     it("should verify all Catppuccin themes have complete ANSI palette", () => {
-      const catppuccinThemes = ["Catppuccin Mocha", "Catppuccin Frappe", "Catppuccin Macchiato"]
+      const catppuccinThemes = [
+        "Catppuccin Mocha",
+        "Catppuccin Frappe",
+        "Catppuccin Macchiato",
+      ]
 
       catppuccinThemes.forEach((themeName) => {
         const theme = getThemeByName(themeName)

@@ -56,9 +56,7 @@ describe("TransparentBackgroundToggle", () => {
   })
 
   it("should render checkbox in checked state when value is true", () => {
-    render(
-      <TransparentBackgroundToggle value={true} onChange={mockOnChange} />
-    )
+    render(<TransparentBackgroundToggle value={true} onChange={mockOnChange} />)
 
     const checkbox = screen.getByRole("checkbox", {
       name: /transparent background/i,
@@ -81,9 +79,7 @@ describe("TransparentBackgroundToggle", () => {
   })
 
   it("should call onChange with false when checkbox is unchecked", () => {
-    render(
-      <TransparentBackgroundToggle value={true} onChange={mockOnChange} />
-    )
+    render(<TransparentBackgroundToggle value={true} onChange={mockOnChange} />)
 
     const checkbox = screen.getByRole("checkbox", {
       name: /transparent background/i,

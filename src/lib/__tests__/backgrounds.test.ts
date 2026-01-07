@@ -120,7 +120,8 @@ describe("backgrounds", () => {
         expect(bg.css).toContain("radial-gradient")
         expect(bg.css).toContain("linear-gradient")
         // Verify layered gradients (multiple radial-gradient calls)
-        const radialGradientCount = (bg.css.match(/radial-gradient/g) || []).length
+        const radialGradientCount = (bg.css.match(/radial-gradient/g) || [])
+          .length
         expect(radialGradientCount).toBeGreaterThanOrEqual(2)
       })
     })

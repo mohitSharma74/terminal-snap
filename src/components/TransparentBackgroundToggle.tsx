@@ -18,7 +18,9 @@ export const TransparentBackgroundToggle = ({
   return (
     <div className="form-field">
       <div className="mb-2">
-        <span className="text-sm font-medium text-foreground">Transparency</span>
+        <span className="text-sm font-medium text-foreground">
+          Transparency
+        </span>
       </div>
       <ModernCheckbox
         id="transparent-background-toggle"

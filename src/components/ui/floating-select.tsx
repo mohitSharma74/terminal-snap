@@ -13,7 +13,10 @@ interface SelectOption {
 }
 
 const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
-  ({ className, label, id, children, value, onChange, disabled, ...props }, ref) => {
+  (
+    { className, label, id, children, value, onChange, disabled, ...props },
+    ref
+  ) => {
     const [hasValue, setHasValue] = React.useState(false)
     const [isOpen, setIsOpen] = React.useState(false)
     const [selectedValue, setSelectedValue] = React.useState(value || "")
@@ -134,7 +137,7 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
           className={cn(
             "floating-input relative cursor-pointer appearance-none pr-10",
             hasValue && "has-value",
-            disabled && "opacity-50 cursor-not-allowed",
+            disabled && "cursor-not-allowed opacity-50",
             className
           )}
           onClick={() => !disabled && setIsOpen(!isOpen)}
