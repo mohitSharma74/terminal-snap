@@ -46,6 +46,21 @@ exports[`ThemeSelector should match snapshot 1`] = `
     >
       GitHub Light
     </option>
+    <option
+      value="Catppuccin Mocha"
+    >
+      Catppuccin Mocha
+    </option>
+    <option
+      value="Catppuccin Frappe"
+    >
+      Catppuccin Frappe
+    </option>
+    <option
+      value="Catppuccin Macchiato"
+    >
+      Catppuccin Macchiato
+    </option>
   </select>
   <div
     aria-expanded="false"

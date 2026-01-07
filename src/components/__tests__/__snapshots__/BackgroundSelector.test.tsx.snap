@@ -61,8 +61,34 @@ exports[`BackgroundSelector should match snapshot 1`] = `
     >
       Rainbow Gradient
     </option>
+    <option
+      value="macos-sonoma-purple"
+    >
+      Sonoma Purple
+    </option>
+    <option
+      value="macos-sequoia-blue"
+    >
+      Sequoia Blue
+    </option>
+    <option
+      value="macos-green-aurora"
+    >
+      Green Aurora
+    </option>
+    <option
+      value="macos-sunset-orange"
+    >
+      Sunset Orange
+    </option>
+    <option
+      value="macos-pink-flow"
+    >
+      Pink Flow
+    </option>
   </select>
   <div
+    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     class="floating-input relative cursor-pointer appearance-none pr-10 has-value"

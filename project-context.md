@@ -7,7 +7,8 @@ Build a web application similar to [carbon.now.sh](http://carbon.now.sh/) but sp
 - **Framework**: Next.js 14+ (App Router)
 - **Language**: TypeScript
 - **Package Manager**: npm
-- **Styling**: Tailwind CSS + shadcn/ui components
+- **Styling**: Tailwind CSS + Custom Glassmorphic Components (no shadcn/ui)
+- **Design System**: Custom glassmorphic dark theme with floating labels and cyan/blue accents
 - **Deployment Target**: Vercel
 
 ## Project Structure
@@ -25,7 +26,7 @@ Build a web application similar to [carbon.now.sh](http://carbon.now.sh/) but sp
 - Placeholder text showing example terminal output
 - User should be able to preview the final result in real time
 
-### 2. Terminal Themes (7 total)
+### 2. Terminal Themes (10 total)
 
 **Dark Themes:**
 
@@ -34,6 +35,9 @@ Build a web application similar to [carbon.now.sh](http://carbon.now.sh/) but sp
 - One Dark
 - Gruvbox Dark
 - Tokyo Night
+- Catppuccin Mocha
+- Catppuccin Frappe
+- Catppuccin Macchiato
 
 **Light Themes:**
 
@@ -48,9 +52,10 @@ Each theme should define:
 
 ### 3. Background Customization
 
-- 5-10 preset background options (solid colors and gradients)
+- 15+ preset background options (solid colors, gradients, and macOS-inspired abstract wallpapers)
 - Users can select from a dropdown/picker
 - Backgrounds should work well with both light and dark terminal themes
+- Option for transparent background (makes outer padding transparent while keeping terminal window solid)
 
 ### 4. OS Window Chrome Toggle
 
@@ -169,22 +174,23 @@ terminalsnap/
 
 ## Getting Started Steps
 
-1. Initialize Next.js project with TypeScript and Tailwind
-2. Install shadcn/ui and add necessary components
-3. Install required libraries (ansi parsing, syntax highlighting, image export)
-4. Create theme configuration system
-5. Build individual components (input, selectors, preview)
-6. Implement ANSI parsing and syntax highlighting
-7. Implement PNG export functionality
-8. Polish UI/UX and add example content
-9. Test across different terminal outputs and edge cases
-10. Prepare for Vercel deployment
+1. ✅ Initialize Next.js project with TypeScript and Tailwind
+2. ✅ Create custom glassmorphic UI components
+3. ✅ Install required libraries (ansi parsing, syntax highlighting, image export)
+4. ✅ Create theme configuration system (10 themes including Catppuccin variants)
+5. ✅ Build individual components (input, selectors, preview)
+6. ✅ Implement ANSI parsing and syntax highlighting
+7. ✅ Implement PNG export functionality
+8. ✅ Polish UI/UX and add example content
+9. ✅ Add transparent background toggle feature
+10. ✅ Deploy to Vercel
 
 ## Nice-to-Have (Future Iterations)
 
-- Window padding/sizing controls
+- ✅ Window padding/sizing controls (completed - orientation and padding selectors)
+- ✅ Shadow customization (completed - drop shadow toggle)
+- ✅ Transparent background option (completed)
 - Font family selection
-- Shadow and border customization
 - Copy as HTML/SVG
 - Save/load presets
 - Animated GIF export for command sequences
@@ -192,11 +198,13 @@ terminalsnap/
 
 ## Success Criteria
 
-- Users can paste terminal output and see it beautifully styled
-- Export produces high-quality PNG images suitable for blogs/documentation
-- All 7 themes render correctly
-- ANSI colors are preserved and displayed accurately
-- Interface is intuitive and responsive
+- ✅ Users can paste terminal output and see it beautifully styled
+- ✅ Export produces high-quality PNG images suitable for blogs/documentation
+- ✅ All 10 themes render correctly (including Catppuccin variants)
+- ✅ ANSI colors are preserved and displayed accurately
+- ✅ Interface is intuitive and responsive with glassmorphic design
+- ✅ 15+ background options including macOS-inspired abstract wallpapers
+- ✅ Transparent background option for custom overlays
 
 ---
 

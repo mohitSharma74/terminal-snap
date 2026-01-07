@@ -57,6 +57,7 @@ export interface TerminalSettings {
   orientation: Orientation
   padding: OrientationPadding
   dropShadow: boolean
+  transparentBackground: boolean
 }
 
 export interface TerminalPreset {

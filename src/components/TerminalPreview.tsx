@@ -89,7 +89,9 @@ export const TerminalPreview = ({
       ref={previewRef}
       className="mx-auto w-full transition-all duration-300"
       style={{
-        background: settings.background.css,
+        background: settings.transparentBackground
+          ? "transparent"
+          : settings.background.css,
         padding: paddingStyle,
         borderRadius: "8px",
         boxSizing: "content-box",

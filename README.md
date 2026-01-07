@@ -17,8 +17,8 @@ Featuring a **modern glassmorphic dark theme** with animated mesh gradient backg
 
 ## Features
 
-- 🎨 **7 Beautiful Themes**: Dracula, Nord, One Dark, Gruvbox Dark, Tokyo Night, Solarized Light, and GitHub Light
-- 🖼️ **Custom Backgrounds**: Choose from 10+ preset backgrounds including gradients and solid colors
+- 🎨 **10 Beautiful Themes**: Dracula, Nord, One Dark, Gruvbox Dark, Tokyo Night, Solarized Light, GitHub Light, and 3 Catppuccin variants (Mocha, Frappe, Macchiato)
+- 🖼️ **Custom Backgrounds**: Choose from 15+ preset backgrounds including gradients, solid colors, and macOS-inspired abstract wallpapers
 - 🪟 **OS Window Styles**: macOS, Windows, Linux, or minimal window decorations
 - 🎯 **ANSI Color Support**: Full support for ANSI escape sequences and color codes
 - 💻 **Shell Auto-Detection**: Automatically detect bash, zsh, or PowerShell from your terminal output
@@ -28,11 +28,11 @@ Featuring a **modern glassmorphic dark theme** with animated mesh gradient backg
 - 🌙 **Glassmorphic Dark UI**: Modern dark theme with animated mesh gradient background, floating labels, and cyan/blue accents
 - 📐 **Customizable Padding & Orientation**: Adjust horizontal and vertical padding for landscape/portrait orientations
 - 🔤 **Syntax Highlighting**: Professional syntax highlighting powered by Shiki
+- 🌈 **Transparent Background**: Option to make outer padding area transparent while keeping terminal window solid
 
 ## Upcoming Features
 
 - 🎨 Hand Drawn Excalidraw styled Terminal Themes
-- 🌈 More Themes and Backgrounds
 - 🖼️ Custom Background Functionality
 - 🔤 Change Terminal Fonts functionality
 - 📋 Copy to Clipboard actions
@@ -48,10 +48,11 @@ For development setup instructions, see [Quickstart.md](Quickstart.md)
 ## Usage
 
 1. **Paste Terminal Output**: Paste your terminal output into the text area
-2. **Choose Theme**: Select from 7 beautiful terminal themes
-3. **Select Background**: Pick a background that complements your theme
+2. **Choose Theme**: Select from 10 beautiful terminal themes including Catppuccin variants
+3. **Select Background**: Pick from 15+ backgrounds including gradients, solid colors, and macOS-inspired wallpapers
 4. **Customize Window**: Choose your OS window style and optional title
-5. **Export**: Click "Export as PNG" to download your beautiful terminal screenshot
+5. **Adjust Settings**: Configure padding, orientation, drop shadow, and transparent background
+6. **Export**: Click "Export as PNG" to download your beautiful terminal screenshot
 
 ## Tech Stack
 

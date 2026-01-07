@@ -13,7 +13,7 @@ interface SelectOption {
 }
 
 const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
-  ({ className, label, id, children, value, onChange, ...props }, ref) => {
+  ({ className, label, id, children, value, onChange, disabled, ...props }, ref) => {
     const [hasValue, setHasValue] = React.useState(false)
     const [isOpen, setIsOpen] = React.useState(false)
     const [selectedValue, setSelectedValue] = React.useState(value || "")
@@ -83,6 +83,8 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
     }
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (disabled) return
+
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault()
         setIsOpen(!isOpen)
@@ -116,6 +118,7 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
           className="sr-only"
           tabIndex={-1}
           aria-hidden="true"
+          disabled={disabled}
           {...props}
         >
           {children}
@@ -124,15 +127,17 @@ const FloatingSelect = React.forwardRef<HTMLSelectElement, FloatingSelectProps>(
         {/* Custom dropdown trigger */}
         <div
           role="button"
-          tabIndex={0}
+          tabIndex={disabled ? -1 : 0}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
+          aria-disabled={disabled}
           className={cn(
             "floating-input relative cursor-pointer appearance-none pr-10",
             hasValue && "has-value",
+            disabled && "opacity-50 cursor-not-allowed",
             className
           )}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => !disabled && setIsOpen(!isOpen)}
           onKeyDown={handleKeyDown}
         >
           <span className="block truncate">{selectedLabel}</span>

@@ -10,6 +10,7 @@ import { ShellTypeSelector } from "@/components/ShellTypeSelector"
 import { OrientationSelector } from "@/components/OrientationSelector"
 import { PaddingSelector } from "@/components/PaddingSelector"
 import { DropShadowToggle } from "@/components/DropShadowToggle"
+import { TransparentBackgroundToggle } from "@/components/TransparentBackgroundToggle"
 import { TerminalPreview } from "@/components/TerminalPreview"
 import { ExportButton } from "@/components/ExportButton"
 import {
@@ -71,6 +72,7 @@ export default function Home() {
       },
     },
     dropShadow: true,
+    transparentBackground: false,
   })
 
   const handleTextChange = (text: string) => {
@@ -117,6 +119,10 @@ export default function Home() {
     setSettings((prev) => ({ ...prev, dropShadow }))
   }
 
+  const handleTransparentBackgroundChange = (transparentBackground: boolean) => {
+    setSettings((prev) => ({ ...prev, transparentBackground }))
+  }
+
   return (
     <main className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
@@ -157,6 +163,11 @@ export default function Home() {
                 <BackgroundSelector
                   value={settings.background}
                   onChange={handleBackgroundChange}
+                  disabled={settings.transparentBackground}
+                />
+                <TransparentBackgroundToggle
+                  value={settings.transparentBackground}
+                  onChange={handleTransparentBackgroundChange}
                 />
                 <DropShadowToggle
                   value={settings.dropShadow}

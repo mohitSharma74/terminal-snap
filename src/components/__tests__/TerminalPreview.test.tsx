@@ -22,6 +22,7 @@ const mockSettings: TerminalSettings = {
     portrait: { horizontal: 40, vertical: 80 },
   },
   dropShadow: true,
+  transparentBackground: false,
 }
 
 describe("TerminalPreview", () => {
@@ -128,5 +129,54 @@ describe("TerminalPreview", () => {
     )
 
     expect(getByText("Terminal")).toBeInTheDocument()
+  })
+
+  it("should apply background CSS when transparentBackground is false", () => {
+    const ref = React.createRef<HTMLDivElement>()
+    const settings = { ...mockSettings, transparentBackground: false }
+    const { container } = render(
+      <TerminalPreview settings={settings} previewRef={ref} />
+    )
+
+    const previewContainer = container.firstChild as HTMLElement
+    expect(previewContainer).toHaveStyle({
+      background: mockSettings.background.css,
+    })
+  })
+
+  it("should apply transparent background when transparentBackground is true", () => {
+    const ref = React.createRef<HTMLDivElement>()
+    const settings = { ...mockSettings, transparentBackground: true }
+    const { container } = render(
+      <TerminalPreview settings={settings} previewRef={ref} />
+    )
+
+    const previewContainer = container.firstChild as HTMLElement
+    expect(previewContainer).toHaveStyle({
+      background: "transparent",
+    })
+  })
+
+  it("should match snapshot with transparent background enabled", () => {
+    const ref = React.createRef<HTMLDivElement>()
+    const settings = { ...mockSettings, transparentBackground: true }
+    const { container } = render(
+      <TerminalPreview settings={settings} previewRef={ref} />
+    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it("should keep terminal window background solid even when outer is transparent", () => {
+    const ref = React.createRef<HTMLDivElement>()
+    const settings = { ...mockSettings, transparentBackground: true }
+    const { container } = render(
+      <TerminalPreview settings={settings} previewRef={ref} />
+    )
+
+    // The terminal content should still have theme background
+    const terminalContent = container.querySelector(".font-mono")
+    expect(terminalContent).toHaveStyle({
+      backgroundColor: mockSettings.theme.background,
+    })
   })
 })

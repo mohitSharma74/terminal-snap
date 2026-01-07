@@ -7,11 +7,13 @@ import type { BackgroundPreset } from "@/types"
 interface BackgroundSelectorProps {
   value: BackgroundPreset
   onChange: (background: BackgroundPreset) => void
+  disabled?: boolean
 }
 
 export const BackgroundSelector = ({
   value,
   onChange,
+  disabled = false,
 }: BackgroundSelectorProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedBg = backgrounds.find((bg) => bg.id === e.target.value)
@@ -27,6 +29,7 @@ export const BackgroundSelector = ({
       value={value.id}
       onChange={handleChange}
       aria-label="Select background"
+      disabled={disabled}
     >
       {backgrounds.map((bg) => (
         <option key={bg.id} value={bg.id}>

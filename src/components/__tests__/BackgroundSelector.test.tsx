@@ -153,4 +153,72 @@ describe("BackgroundSelector", () => {
     // The second option (backgrounds[1]) should have the selected class
     expect(options[1]).toHaveClass("custom-dropdown-option-selected")
   })
+
+  it("should disable selector when disabled prop is true", () => {
+    render(
+      <BackgroundSelector
+        value={backgrounds[0]}
+        onChange={mockOnChange}
+        disabled={true}
+      />
+    )
+
+    // The trigger button should be disabled
+    const trigger = screen.getByRole("button")
+    expect(trigger).toHaveAttribute("aria-disabled", "true")
+
+    // The hidden select should be disabled
+    const hiddenSelect = document.querySelector(
+      "select.sr-only"
+    ) as HTMLSelectElement
+    expect(hiddenSelect).toBeDisabled()
+  })
+
+  it("should not open dropdown when disabled and clicked", () => {
+    render(
+      <BackgroundSelector
+        value={backgrounds[0]}
+        onChange={mockOnChange}
+        disabled={true}
+      />
+    )
+
+    // Try to open dropdown
+    const trigger = screen.getByRole("button")
+    fireEvent.click(trigger)
+
+    // Dropdown should not be open
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
+  })
+
+  it("should allow selector to work when disabled prop is false", () => {
+    render(
+      <BackgroundSelector
+        value={backgrounds[0]}
+        onChange={mockOnChange}
+        disabled={false}
+      />
+    )
+
+    // Open dropdown should work
+    const trigger = screen.getByRole("button")
+    fireEvent.click(trigger)
+
+    // Dropdown should be open
+    expect(screen.getByRole("listbox")).toBeInTheDocument()
+  })
+
+  it("should use disabled=false by default when disabled prop is omitted", () => {
+    render(
+      <BackgroundSelector value={backgrounds[0]} onChange={mockOnChange} />
+    )
+
+    // The trigger button should not be disabled
+    const trigger = screen.getByRole("button")
+    expect(trigger).not.toHaveAttribute("aria-disabled", "true")
+
+    // Should be able to open dropdown
+    fireEvent.click(trigger)
+    expect(screen.getByRole("listbox")).toBeInTheDocument()
+  })
 })

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TransparentBackgroundToggle should match snapshot when checked 1`] = `
+<div
+  class="form-field"
+>
+  <div
+    class="mb-2"
+  >
+    <span
+      class="text-sm font-medium text-foreground"
+    >
+      Transparency
+    </span>
+  </div>
+  <div
+    class="modern-checkbox-wrapper"
+  >
+    <input
+      aria-label="Toggle transparent background for outer padding area"
+      checked=""
+      class="modern-checkbox-input"
+      id="transparent-background-toggle"
+      type="checkbox"
+    />
+    <label
+      class="modern-checkbox-label"
+      for="transparent-background-toggle"
+    >
+      Transparent background
+    </label>
+  </div>
+</div>
+`;
+
+exports[`TransparentBackgroundToggle should match snapshot when unchecked 1`] = `
+<div
+  class="form-field"
+>
+  <div
+    class="mb-2"
+  >
+    <span
+      class="text-sm font-medium text-foreground"
+    >
+      Transparency
+    </span>
+  </div>
+  <div
+    class="modern-checkbox-wrapper"
+  >
+    <input
+      aria-label="Toggle transparent background for outer padding area"
+      class="modern-checkbox-input"
+      id="transparent-background-toggle"
+      type="checkbox"
+    />
+    <label
+      class="modern-checkbox-label"
+      for="transparent-background-toggle"
+    >
+      Transparent background
+    </label>
+  </div>
+</div>
+`;
