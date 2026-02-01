@@ -55,6 +55,7 @@ export interface TerminalSettings {
   shellType: ShellType
   windowTitle?: string
   orientation: Orientation
+  fontFamily: string
   padding: OrientationPadding
   dropShadow: boolean
 }

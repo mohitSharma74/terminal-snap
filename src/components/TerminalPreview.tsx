@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { parseANSI } from "@/lib/ansi-parser"
+import { getFontById } from "@/lib/fonts"
 import type { TerminalSettings } from "@/types"
 import { cn } from "@/lib/utils"
 
@@ -84,6 +85,8 @@ export const TerminalPreview = ({
   const currentPadding = settings.padding[settings.orientation]
   const paddingStyle = `${currentPadding.vertical}px ${currentPadding.horizontal}px`
 
+  const font = getFontById(settings.fontFamily)
+
   return (
     <div
       ref={previewRef}
@@ -107,12 +110,14 @@ export const TerminalPreview = ({
       >
         {hasChrome && renderOSChrome(settings.osChrome, windowTitle)}
         <div
-          className="overflow-auto p-6 font-mono text-sm leading-relaxed transition-all duration-300"
+          className="overflow-auto p-6 text-sm leading-relaxed transition-all duration-300"
           style={{
             backgroundColor: settings.theme.background,
             color: settings.theme.foreground,
             minHeight: settings.orientation === "landscape" ? "200px" : "600px",
             maxHeight: settings.orientation === "landscape" ? "350px" : "900px",
+            fontFamily: font.fontFamily,
+            ...font.style,
           }}
         >
           <div className="whitespace-pre-wrap break-words">

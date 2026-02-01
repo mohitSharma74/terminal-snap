@@ -17,6 +17,7 @@ const mockSettings: TerminalSettings = {
   shellType: "bash",
   windowTitle: "Terminal",
   orientation: "landscape",
+  fontFamily: "fira-code",
   padding: {
     landscape: { horizontal: 80, vertical: 80 },
     portrait: { horizontal: 40, vertical: 80 },
@@ -92,7 +93,7 @@ describe("TerminalPreview", () => {
       <TerminalPreview settings={mockSettings} previewRef={ref} />
     )
 
-    const terminalContent = container.querySelector(".font-mono")
+    const terminalContent = container.querySelector(".overflow-auto")
     expect(terminalContent).toHaveStyle({
       backgroundColor: mockSettings.theme.background,
       color: mockSettings.theme.foreground,

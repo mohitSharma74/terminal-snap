@@ -1,8 +1,20 @@
-import { exportAsPNG } from "../export"
-import { toPng } from "html-to-image"
+import { exportAsPNG, copyToClipboard } from "../export"
+import { toPng, toBlob } from "html-to-image"
 
 // Mock html-to-image
 jest.mock("html-to-image")
+
+// Mock Clipboard API
+const mockClipboardWrite = jest.fn()
+Object.assign(navigator, {
+  clipboard: {
+    write: mockClipboardWrite,
+  },
+})
+
+// Mock ClipboardItem
+// @ts-expect-error Global ClipboardItem type
+global.ClipboardItem = jest.fn().mockImplementation((data) => data)
 
 describe("export", () => {
   let mockElement: HTMLElement
@@ -26,12 +38,55 @@ describe("export", () => {
 
     jest.spyOn(document, "createElement").mockReturnValue(mockLink)
 
-    // Reset mock
+    // Reset mocks
     ;(toPng as jest.Mock).mockResolvedValue("data:image/png;base64,testData")
+    ;(toBlob as jest.Mock).mockResolvedValue(
+      new Blob(["test"], { type: "image/png" })
+    )
+    mockClipboardWrite.mockReset()
+    ;(global.ClipboardItem as unknown as jest.Mock).mockClear()
   })
 
   afterEach(() => {
     jest.restoreAllMocks()
+  })
+
+  describe("copyToClipboard", () => {
+    it("should call toBlob with correct options", async () => {
+      await copyToClipboard(mockElement)
+
+      expect(toBlob).toHaveBeenCalledWith(mockElement, {
+        quality: 1.0,
+        pixelRatio: 2,
+        backgroundColor: "#ffffff",
+        cacheBust: true,
+      })
+    })
+
+    it("should write to clipboard", async () => {
+      await copyToClipboard(mockElement)
+
+      expect(global.ClipboardItem).toHaveBeenCalledWith({
+        "image/png": expect.any(Blob),
+      })
+      expect(mockClipboardWrite).toHaveBeenCalled()
+    })
+
+    it("should throw error if blob creation fails", async () => {
+      ;(toBlob as jest.Mock).mockResolvedValue(null)
+
+      await expect(copyToClipboard(mockElement)).rejects.toThrow(
+        "Failed to generate image blob"
+      )
+    })
+
+    it("should throw error if clipboard write fails", async () => {
+      mockClipboardWrite.mockRejectedValue(new Error("Clipboard error"))
+
+      await expect(copyToClipboard(mockElement)).rejects.toThrow(
+        "Clipboard error"
+      )
+    })
   })
 
   describe("exportAsPNG", () => {

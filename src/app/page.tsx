@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { TextInput } from "@/components/TextInput"
+import FontSelector from "@/components/FontSelector"
 import { ThemeSelector } from "@/components/ThemeSelector"
 import { BackgroundSelector } from "@/components/BackgroundSelector"
 import { OSChromeToggle } from "@/components/OSChromeToggle"
@@ -20,6 +21,8 @@ import {
 } from "@/components/ui/glass-card"
 import { getThemeByName } from "@/lib/themes"
 import { getBackgroundById } from "@/lib/backgrounds"
+import { DEFAULT_FONT } from "@/lib/fonts"
+import { loadSettings, saveSettings } from "@/lib/storage"
 import type { TerminalSettings, PaddingConfig } from "@/types"
 
 const defaultTerminalOutput = `$ npm install -g terminal-snap
@@ -60,6 +63,7 @@ export default function Home() {
     shellType: "auto",
     windowTitle: "Terminal",
     orientation: "portrait",
+    fontFamily: DEFAULT_FONT.id,
     padding: {
       landscape: {
         horizontal: 32,
@@ -73,8 +77,28 @@ export default function Home() {
     dropShadow: true,
   })
 
+  // Load settings on mount
+  useEffect(() => {
+    const saved = loadSettings()
+    if (saved) {
+      setSettings(saved)
+    }
+  }, [])
+
+  // Auto-save settings
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      saveSettings(settings)
+    }, 300)
+    return () => clearTimeout(timeoutId)
+  }, [settings])
+
   const handleTextChange = (text: string) => {
     setSettings((prev) => ({ ...prev, text }))
+  }
+
+  const handleFontChange = (fontFamily: string) => {
+    setSettings((prev) => ({ ...prev, fontFamily }))
   }
 
   const handleThemeChange = (theme: typeof settings.theme) => {
@@ -150,6 +174,10 @@ export default function Home() {
                   onChange={handlePaddingChange}
                 />
                 <TextInput value={settings.text} onChange={handleTextChange} />
+                <FontSelector
+                  value={settings.fontFamily}
+                  onChange={handleFontChange}
+                />
                 <ThemeSelector
                   value={settings.theme}
                   onChange={handleThemeChange}
